@@ -1,5 +1,7 @@
 package com.renato.listrest.models.services;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,14 @@ public class DNISService {
 		LogSrv.logger.info("DNIS save " + dnis);		
 		return dnisRepository.save(dnis);
 	}
+	
+	public DNIS findByID(Long id) {
+		LogSrv.logger.info("DNIS findByID " + id);		
+		
+		Optional<DNIS> obj = dnisRepository.findById(id);
+		return obj.orElse(null);
+	}
+	
 	
 	
 	
