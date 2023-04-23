@@ -6,9 +6,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.renato.listrest.models.entities.DNIS;
+import com.renato.listrest.models.entities.Phone;
 
 @Repository
-public interface DNISRepository extends CrudRepository<DNIS, Long>{	
-
-	public Optional<DNIS> findByDnisIgnoreCase(String dnis);  
+public interface PhoneRepository extends CrudRepository<Phone, Long>{
+	public Optional<Phone> findByDnisAndFullfone(DNIS dnis, String fullFone); 
 }

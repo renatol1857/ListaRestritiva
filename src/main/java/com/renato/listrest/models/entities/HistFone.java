@@ -6,62 +6,44 @@ import java.util.Objects;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.renato.listrest.models.enums.StatusEn;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
-
 
 @Entity
-@Table(name = "tbdnis")
+@Table(name = "tbhistphone")
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-@ToString
-public class DNIS implements Serializable{
+public class HistFone implements Serializable{
 	@Transient
 	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(length = 30,nullable = false,unique = true, updatable = false)
-	private String dnis;
-
-	@Column(length = 50)
-	private String alias;
-	
-	private StatusEn status = StatusEn.INATIVO;
-
-	@Column(length = 200)
-	private String descricao;
-	
+	@ManyToOne
+	private Phone phone;
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
 	private Date dh;
 	
-	public DNIS( String dnis, String alias, String descricao) {
-		this.dnis = dnis;
-		this.alias = alias;
-		this.descricao = descricao;
-		this.status = StatusEn.INATIVO;
+	public HistFone(Phone phone) {
+		super();
+		this.phone = phone;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -70,8 +52,17 @@ public class DNIS implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DNIS other = (DNIS) obj;
+		HistFone other = (HistFone) obj;
 		return Objects.equals(id, other.id);
 	}
+
+	@Override
+	public String toString() {
+		return "HistFone [id=" + id + ", phone=" + phone + ", dh=" + dh + "]";
+	}
+
+	
+	
+	
 	
 }

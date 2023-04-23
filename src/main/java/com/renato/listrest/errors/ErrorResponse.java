@@ -20,6 +20,8 @@ public class ErrorResponse {
     private int codMsg;
     private String status;
     private String message;
+    private int marcador=0;
+    private int rc=0;
     private String stackTrace;
 
     public ErrorResponse() {
