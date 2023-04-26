@@ -22,37 +22,16 @@ public class PhoneService {
 	@Autowired
 	private HistPhoneService histPhoneService;
 
-	public Phone save(Long idDNIS, String fullfone) {
-		if (fullfone.isEmpty())
-			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "fullfone fora do padrão.");
-		if (idDNIS <= 0)
-			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "idMCDU fora do padrão.");
-		DNIS dnis = dnisService.findByID(idDNIS);
-		if (dnis.getStatus() != StatusEn.ATIVO)
-			throw new CustomErrorException(HttpStatus.CONFLICT, "MCDU nao ATIVO.");
-
-		Phone fone = null;
-		Optional<Phone> obj = phoneRepository.findByDnisAndFullfone(dnis, fullfone);
-		if (obj.isPresent())
-			fone = obj.get();
-		else {
-			fone = new Phone(dnis, fullfone);
-			fone = phoneRepository.save(fone);
-		}
-		histPhoneService.save(fone);
-		return fone;
-	}
-
 	public PhoneSalvarRespostaDTO save(String sDnis, String fullfone) {
 		if (fullfone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "fullfone fora do padrão.");
 		if (sDnis.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "dnis fora do padrão.");
 		DNIS dnis = dnisService.findByDnis(sDnis);
-		/*
-		 * if (dnis.getStatus() != StatusEn.ATIVO) throw new
-		 * CustomErrorException(HttpStatus.CONFLICT, "DNIS não ativo.");
-		 */
+		 
+		/*#FIXME ajutar o StatusEn, nao esta gravando corretamente os valores na tbDNIS (status) */
+		if (dnis.getStatus() != StatusEn.ATIVO) 
+		 	throw new CustomErrorException(HttpStatus.CONFLICT, "DNIS não está ativo.");
 		Phone fone = null;
 		Optional<Phone> obj = phoneRepository.findByDnisAndFullfone(dnis, fullfone);
 		if (obj.isPresent())

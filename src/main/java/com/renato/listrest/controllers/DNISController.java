@@ -28,15 +28,28 @@ public class DNISController {
 		return dnisService.save(dnisDTO.transformaToObj());
 	}
 	
+	/*
 	@GetMapping("/{id}")
 	public DNIS findByID(@PathVariable Long id) {
 		return dnisService.findByID(id);
+	}
+	*/
+	
+	@PutMapping
+	public DNIS update(@Valid DNISDTO dnisDTO) {
+		return null;//dnisService.findByDnis(dnisDTO.transformaToObj());
+	}
+
+	@GetMapping("/{sDnis}")
+	public DNIS findByDnis(@PathVariable String sDnis) {
+		return dnisService.findByDnis(sDnis);
 	}
 	
 	@PostMapping(path = "/fone/{dnis}")
 	public PhoneSalvarRespostaDTO save(@PathVariable String dnis, String fullfone) {
 		return phoneService.save(dnis, fullfone);
 	}
+	
 	
 	
 }

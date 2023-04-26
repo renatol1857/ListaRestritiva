@@ -1,7 +1,5 @@
 package com.renato.listrest.models.dto;
 
-import java.util.Date;
-
 import com.renato.listrest.models.entities.Phone;
 
 import lombok.AccessLevel;
@@ -19,7 +17,8 @@ public class PhoneSalvarRespostaDTO {
     private String ddi;
     private String ddd;
     private String fone;
-    private Date dh;
+    private String dh;
+    private String dhup;
 
     public static PhoneSalvarRespostaDTO transfonaEmDTO(Phone phone) {
     	return new PhoneSalvarRespostaDTO(
@@ -29,6 +28,8 @@ public class PhoneSalvarRespostaDTO {
     			phone.getDdi(), 
     			phone.getDdd(), 
     			phone.getFone(), 
-    			phone.getDh());
+    			phone.getDh(),
+    			phone.getDhup());
+    	
 	}
 }

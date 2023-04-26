@@ -1,10 +1,13 @@
 package com.renato.listrest.models.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import com.renato.listrest.models.enums.StatusEn;
 
@@ -18,7 +21,6 @@ import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 
 @Entity
@@ -26,7 +28,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 public class DNIS implements Serializable{
 	@Transient
 	private static final long serialVersionUID = 1L;
@@ -41,20 +42,35 @@ public class DNIS implements Serializable{
 	@Column(length = 50)
 	private String alias;
 	
-	private StatusEn status = StatusEn.INATIVO;
+	private StatusEn status;
 
 	@Column(length = 200)
 	private String descricao;
 	
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
-	private Date dh;
+	private Instant dh;
+	
+	@Column(nullable = false, updatable = false)
+	@UpdateTimestamp
+	private Instant dhup;
+	
 	
 	public DNIS( String dnis, String alias, String descricao) {
 		this.dnis = dnis;
 		this.alias = alias;
 		this.descricao = descricao;
 		this.status = StatusEn.INATIVO;
+	}
+	
+	public String getDh() {
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
+		return fmt.format(this.dh);
+	}
+
+	public String getDhup() {
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
+		return fmt.format(this.dhup);
 	}
 
 	@Override
@@ -73,5 +89,13 @@ public class DNIS implements Serializable{
 		DNIS other = (DNIS) obj;
 		return Objects.equals(id, other.id);
 	}
+
+	@Override
+	public String toString() {
+		return "DNIS [id=" + id + ", dnis=" + dnis + ", alias=" + alias + ", status=" + status + ", descricao="
+				+ descricao + ", dh=" + dh + ", dhup=" + dhup + "]";
+	}
+	
+	
 	
 }

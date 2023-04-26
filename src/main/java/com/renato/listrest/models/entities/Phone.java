@@ -1,10 +1,13 @@
 package com.renato.listrest.models.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -44,7 +47,10 @@ public class Phone implements Serializable{
 	private String fone="";
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
-	private Date dh;
+	private Instant dh;
+	@Column(nullable = false, updatable = false)
+	@UpdateTimestamp
+	private Instant dhup;
 	
 	public Phone(DNIS dnis, String fullfone) {
 		super();
@@ -62,6 +68,16 @@ public class Phone implements Serializable{
 		this.ddi = ddi;
 		this.ddd = ddd;
 		this.fone = fone;
+	}
+	
+	public String getDh() {
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
+		return fmt.format(this.dh);
+	}
+
+	public String getDhup() {
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
+		return fmt.format(this.dhup);
 	}
 	
 	@Override
@@ -83,8 +99,11 @@ public class Phone implements Serializable{
 	@Override
 	public String toString() {
 		return "Phone [id=" + id + ", dnis=" + dnis.getDnis() + ", fullfone=" + fullfone + ", ddi=" + ddi + ", ddd=" + ddd
-				+ ", fone=" + fone + ", dh=" + dh + "]";
+				+ ", fone=" + fone + ", dh=" + dh + ", dhup=" + dhup + "]";
 	}
+
+
+
 	
 	
 }
