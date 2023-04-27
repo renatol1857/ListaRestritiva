@@ -53,7 +53,6 @@ public class Phone implements Serializable{
 	private Instant dhup;
 	
 	public Phone(DNIS dnis, String fullfone) {
-		super();
 		this.dnis = dnis;
 		this.fullfone = fullfone;
 		this.ddi = "";
@@ -62,9 +61,7 @@ public class Phone implements Serializable{
 	}
 	
 	public Phone(DNIS dnis, String ddi, String ddd, String fone) {
-		super();
-		this.dnis = dnis;
-		this.fullfone = ddi + ddd + fone;
+		this(dnis,ddi + ddd + fone);
 		this.ddi = ddi;
 		this.ddd = ddd;
 		this.fone = fone;

@@ -58,14 +58,12 @@ public class DNIS implements Serializable {
 		this.dnis = dnis;
 		this.alias = alias;
 		this.descricao = descricao;
-		this.status = StatusEn.INATIVO;
+		this.status = StatusEn.APROVACAO;
 	}
 
 	public DNIS(Long id, String dnis, String alias, String descricao, StatusEn status) {
+		this(dnis,alias,descricao);
 		this.id = id;
-		this.dnis = dnis;
-		this.alias = alias;
-		this.descricao = descricao;
 		this.status = status;
 	}
 
