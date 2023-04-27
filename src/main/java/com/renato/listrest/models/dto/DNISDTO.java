@@ -15,11 +15,11 @@ public class DNISDTO {
 	@NotBlank(message = "O campo 'dnis' não pode estar em branco")
 	@NotNull(message = "O campo 'dnis' não pode ser nulo")
 	@Length(min = 4, max = 30, message = "O campo 'dnis' deve ter um tamanho entre 4 e 30 bytes")
-	private String dnis; 
+	protected String dnis; 
 	@Length(max = 50, message = "O campo 'alias' deve ter um tamanho max de 50 bytes")
-	private String alias; 
+	protected String alias; 
 	@Length(max = 50, message = "O campo 'alias' deve ter um tamanho max de 200 bytes")
-	private String descricao;
+	protected String descricao;
 	
 	public DNIS transformaToObj() {
 		return new DNIS(dnis, alias, descricao);

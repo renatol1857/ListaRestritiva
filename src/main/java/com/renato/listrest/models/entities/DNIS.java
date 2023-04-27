@@ -22,47 +22,53 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity
 @Table(name = "tbdnis")
 @Getter
 @Setter
 @NoArgsConstructor
-public class DNIS implements Serializable{
+public class DNIS implements Serializable {
 	@Transient
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(length = 30,nullable = false,unique = true, updatable = false)
+
+	@Column(length = 30, nullable = false, unique = true, updatable = false)
 	private String dnis;
 
 	@Column(length = 50)
 	private String alias;
-	
+
 	private StatusEn status;
 
 	@Column(length = 200)
 	private String descricao;
-	
+
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
-	private Instant dh;
-	
-	@Column(nullable = false, updatable = false)
+	private  Instant dh;
+
+	@Column(nullable = false, updatable = true)
 	@UpdateTimestamp
 	private Instant dhup;
-	
-	
-	public DNIS( String dnis, String alias, String descricao) {
+
+	public DNIS(String dnis, String alias, String descricao) {
 		this.dnis = dnis;
 		this.alias = alias;
 		this.descricao = descricao;
 		this.status = StatusEn.INATIVO;
 	}
-	
+
+	public DNIS(Long id, String dnis, String alias, String descricao, StatusEn status) {
+		this.id = id;
+		this.dnis = dnis;
+		this.alias = alias;
+		this.descricao = descricao;
+		this.status = status;
+	}
+
 	public String getDh() {
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
 		return fmt.format(this.dh);
@@ -95,7 +101,5 @@ public class DNIS implements Serializable{
 		return "DNIS [id=" + id + ", dnis=" + dnis + ", alias=" + alias + ", status=" + status + ", descricao="
 				+ descricao + ", dh=" + dh + ", dhup=" + dhup + "]";
 	}
-	
-	
-	
+
 }

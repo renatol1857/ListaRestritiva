@@ -7,6 +7,8 @@ target/
 ### Properties
 .properties
 
+lstrestritiva.log.*
+
 ### STS ###
 .apt_generated
 .classpath
@@ -15,6 +17,8 @@ target/
 .settings
 .springBeans
 .sts4-cache
+
+
 
 ### IntelliJ IDEA ###
 .idea
