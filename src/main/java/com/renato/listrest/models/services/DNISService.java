@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.renato.listrest.exceptions.CustomErrorException;
 import com.renato.listrest.models.entities.DNIS;
+import com.renato.listrest.models.enums.StatusEn;
 import com.renato.listrest.models.repositories.DNISRepository;
 import com.renato.listrest.util.LogSrv;
 
@@ -15,7 +16,7 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class DNISService {
-	
+
 	@Autowired
 	private DNISRepository dnisRepository;
 
@@ -37,33 +38,38 @@ public class DNISService {
 		if (!obj.isPresent())
 			throw new CustomErrorException(HttpStatus.CONFLICT, "ID nao cadastrado.");
 		DNIS regDnis = obj.get();
-		if (! regDnis.getDnis().equals(dnis.getDnis()))
+		if (!regDnis.getDnis().equals(dnis.getDnis()))
 			throw new CustomErrorException(HttpStatus.CONFLICT, "dnis nao pode ser alterado.");
 		regDnis.setAlias(dnis.getAlias());
 		regDnis.setDescricao(dnis.getDescricao());
 		regDnis.setStatus(dnis.getStatus());
-		// dnisRepository.upDnisById(dnis.getAlias(),dnis.getDescricao(), dnis.getStatus(),dnis.getId());
-		
+		// dnisRepository.upDnisById(dnis.getAlias(),dnis.getDescricao(),
+		// dnis.getStatus(),dnis.getId());
+
 		return dnisRepository.save(regDnis);
 	}
 
 	public DNIS findByID(Long id) {
-		LogSrv.logger.info("DNIS findByID " + id);		
-		
+		LogSrv.logger.info("DNIS findByID " + id);
+
 		Optional<DNIS> obj = dnisRepository.findById(id);
-		return obj.orElseThrow(() -> new CustomErrorException(HttpStatus.NOT_FOUND, "ID DNIS not found - "+id));
+		return obj.orElseThrow(() -> new CustomErrorException(HttpStatus.NOT_FOUND, "DNIS not found - id=" + id));
 	}
-	
-	public DNIS findByDnis(String dnis) {
-		LogSrv.logger.info("DNIS findByDnis " + dnis);		
-		
-		Optional<DNIS> obj = dnisRepository.findByDnisIgnoreCase(dnis);
-		return obj.orElseThrow(() -> new CustomErrorException(HttpStatus.NOT_FOUND, "DNIS not found - "+dnis));
+
+	public DNIS findByDnis(String mcdu) {
+		LogSrv.logger.info("DNIS findByDnis " + mcdu);
+
+		Optional<DNIS> obj = dnisRepository.findByDnisIgnoreCase(mcdu);
+		return obj.orElseThrow(() -> new CustomErrorException(HttpStatus.NOT_FOUND, "MCDU not found - " + mcdu));
 	}
-	
-	
-	
-	
-	
-	
+
+	public DNIS consultarFone(String mcdu, String fullFone) {
+		LogSrv.logger.info("DNIS findByDnis " + mcdu);
+		DNIS dnis = findByDnis(mcdu);
+		if (dnis.getStatus() != StatusEn.ATIVO)
+			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "DNIS não está ativo.");
+
+		return dnis;
+	}
+
 }

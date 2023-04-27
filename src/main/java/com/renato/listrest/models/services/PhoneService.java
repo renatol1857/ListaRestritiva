@@ -31,7 +31,7 @@ public class PhoneService {
 		 
 		/*#FIXME ajutar o StatusEn, nao esta gravando corretamente os valores na tbDNIS (status) */
 		if (dnis.getStatus() != StatusEn.ATIVO) 
-		 	throw new CustomErrorException(HttpStatus.CONFLICT, "DNIS não está ativo.");
+		 	throw new CustomErrorException(HttpStatus.BAD_REQUEST, "DNIS não está ativo.");
 		Phone fone = null;
 		Optional<Phone> obj = phoneRepository.findByDnisAndFullfone(dnis, fullfone);
 		if (obj.isPresent())
@@ -44,6 +44,10 @@ public class PhoneService {
 		return PhoneSalvarRespostaDTO.transfonaEmDTO(fone);
 	}
 
+	public void consultarFone(String mcdu, String fullFone ) {
+		
+	}
+	
 	public Phone save(String mcdu, String ddi, String ddd, String Phone) {
 
 		return null;

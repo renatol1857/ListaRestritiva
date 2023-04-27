@@ -30,13 +30,6 @@ public class DNISController {
 		return dnisService.save(dnisDTO.transformaToObj());
 	}
 	
-	/*
-	@GetMapping("/{id}")
-	public DNIS findByID(@PathVariable Long id) {
-		return dnisService.findByID(id);
-	}
-	*/
-	
 	@PutMapping
 	public DNIS update(@Valid DNISPutDTO dnisPutDTO) {
 		return dnisService.update(dnisPutDTO.transformaToObj());
@@ -51,6 +44,13 @@ public class DNISController {
 	public PhoneSalvarRespostaDTO save(@PathVariable String dnis, String fullfone) {
 		return phoneService.save(dnis, fullfone);
 	}
+	
+	@GetMapping(path = "/fone/{dnis}/{fone}")
+	public DNIS consultarFone(@PathVariable String dnis, @PathVariable String fone) {
+		return dnisService.consultarFone(dnis, fone);
+	}
+	
+
 	
 	
 	
