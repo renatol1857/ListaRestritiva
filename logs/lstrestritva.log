@@ -1,152 +1,694 @@
-2023-04-27T07:58:32.355-03:00  INFO 16864 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 16864 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
-2023-04-27T07:58:32.361-03:00  INFO 16864 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : The following 1 profile is active: "dev"
-2023-04-27T07:58:32.415-03:00  INFO 16864 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-04-27T07:58:32.416-03:00  INFO 16864 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-04-27T07:58:33.117-03:00  INFO 16864 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-04-27T07:58:33.215-03:00  INFO 16864 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 3 JPA repository interfaces.
-2023-04-27T07:58:33.829-03:00  INFO 16864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-04-27T07:58:33.841-03:00  INFO 16864 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-04-27T07:58:33.842-03:00  INFO 16864 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
-2023-04-27T07:58:33.905-03:00  INFO 16864 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-04-27T07:58:33.906-03:00  INFO 16864 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1489 ms
-2023-04-27T07:58:34.025-03:00  INFO 16864 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-04-27T07:58:34.084-03:00  INFO 16864 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
-2023-04-27T07:58:34.376-03:00  INFO 16864 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-04-27T07:58:34.531-03:00  INFO 16864 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2ab427e
-2023-04-27T07:58:34.533-03:00  INFO 16864 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-04-27T07:58:34.578-03:00  INFO 16864 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-04-27T07:58:35.448-03:00  INFO 16864 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-04-27T07:58:35.460-03:00  INFO 16864 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-04-27T07:58:35.994-03:00  WARN 16864 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-04-27T07:58:36.256-03:00  INFO 16864 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-04-27T07:58:36.290-03:00  INFO 16864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-04-27T07:58:36.297-03:00  INFO 16864 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 4.403 seconds (process running for 5.062)
-2023-04-27T07:58:36.299-03:00  INFO 16864 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
-2023-04-27T07:58:48.000-03:00  INFO 16864 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2023-04-27T07:58:48.037-03:00  INFO 16864 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-04-27T07:58:48.043-03:00  INFO 16864 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-04-27T07:58:48.046-03:00  INFO 16864 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-04-27T07:58:48.059-03:00  INFO 16864 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-04-27T07:58:48.108-03:00  INFO 16864 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Criando o Sistema - Lista Restitiva ....
-2023-04-27T07:58:48.137-03:00  INFO 16864 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 16864 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
-2023-04-27T07:58:48.138-03:00  INFO 16864 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : The following 1 profile is active: "dev"
-2023-04-27T07:58:48.247-03:00  INFO 16864 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-04-27T07:58:48.256-03:00  INFO 16864 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 3 JPA repository interfaces.
-2023-04-27T07:58:48.313-03:00  INFO 16864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-04-27T07:58:48.313-03:00  INFO 16864 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-04-27T07:58:48.313-03:00  INFO 16864 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
-2023-04-27T07:58:48.323-03:00  INFO 16864 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-04-27T07:58:48.323-03:00  INFO 16864 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 183 ms
-2023-04-27T07:58:48.355-03:00  INFO 16864 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-04-27T07:58:48.361-03:00  INFO 16864 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2023-04-27T07:58:48.406-03:00  INFO 16864 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@403ee8d8
-2023-04-27T07:58:48.406-03:00  INFO 16864 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2023-04-27T07:58:48.413-03:00  INFO 16864 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-04-27T07:58:48.509-03:00  INFO 16864 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-04-27T07:58:48.509-03:00  INFO 16864 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-04-27T07:58:48.591-03:00  WARN 16864 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-04-27T07:58:48.656-03:00  INFO 16864 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-04-27T07:58:48.663-03:00  INFO 16864 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-04-27T07:58:48.667-03:00  INFO 16864 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 0.555 seconds (process running for 17.432)
-2023-04-27T07:58:48.668-03:00  INFO 16864 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2023-04-27T07:58:48.669-03:00  INFO 16864 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
-2023-04-27T07:59:09.344-03:00  INFO 16864 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-04-27T07:59:09.344-03:00  INFO 16864 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-04-27T07:59:09.353-03:00  INFO 16864 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
-2023-04-27T07:59:24.590-03:00  INFO 16864 --- [http-nio-8080-exec-3] c.r.listrest.ListaRestritivaApplication  : DNIS findByDnis 8020
-2023-04-27T08:22:21.618-03:00  WARN 16864 --- [HikariPool-2 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=14m2s961ms872µs400ns).
-2023-04-27T08:22:36.150-03:00  INFO 16864 --- [RMI TCP Connection(14)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2023-04-27T08:22:36.169-03:00  INFO 16864 --- [RMI TCP Connection(14)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-04-27T08:22:36.171-03:00  INFO 16864 --- [RMI TCP Connection(14)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2023-04-27T08:22:36.180-03:00  INFO 16864 --- [RMI TCP Connection(14)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-04-27T08:22:36.181-03:00  INFO 16864 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2023-04-27T08:22:36.196-03:00  INFO 16864 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2023-04-27T18:25:16.761-03:00  INFO 16452 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.5 with PID 16452 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
-2023-04-27T18:25:16.769-03:00  INFO 16452 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
-2023-04-27T18:25:16.822-03:00  INFO 16452 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-04-27T18:25:16.822-03:00  INFO 16452 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-04-27T18:25:17.321-03:00  INFO 16452 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-04-27T18:25:17.393-03:00  INFO 16452 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 3 JPA repository interfaces.
-2023-04-27T18:25:17.916-03:00  INFO 16452 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-04-27T18:25:17.932-03:00  INFO 16452 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-04-27T18:25:17.932-03:00  INFO 16452 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
-2023-04-27T18:25:18.012-03:00  INFO 16452 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-04-27T18:25:18.012-03:00  INFO 16452 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1186 ms
-2023-04-27T18:25:18.181-03:00  INFO 16452 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-04-27T18:25:18.237-03:00  INFO 16452 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
-2023-04-27T18:25:18.478-03:00  INFO 16452 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-04-27T18:25:18.662-03:00  INFO 16452 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@33b95457
-2023-04-27T18:25:18.662-03:00  INFO 16452 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-04-27T18:25:18.759-03:00  INFO 16452 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-04-27T18:25:19.812-03:00  INFO 16452 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-04-27T18:25:19.820-03:00  INFO 16452 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-04-27T18:25:20.305-03:00  WARN 16452 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-04-27T18:25:20.529-03:00  INFO 16452 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-04-27T18:25:20.561-03:00  INFO 16452 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-04-27T18:25:20.577-03:00  INFO 16452 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 4.182 seconds (process running for 4.491)
-2023-04-27T18:25:20.577-03:00  INFO 16452 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
-2023-04-27T18:26:09.467-03:00  INFO 16452 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-04-27T18:26:09.467-03:00  INFO 16452 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-04-27T18:26:09.467-03:00  INFO 16452 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2023-04-27T18:26:09.515-03:00  INFO 16452 --- [http-nio-8080-exec-2] c.r.listrest.ListaRestritivaApplication  : DNIS findByDnis 8020
-2023-04-27T18:26:27.107-03:00  INFO 16452 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-04-27T18:26:27.107-03:00  INFO 16452 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-04-27T18:26:27.123-03:00  INFO 16452 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-04-27T18:27:09.926-03:00  INFO 11916 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 11916 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
-2023-04-27T18:27:09.927-03:00  INFO 11916 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
-2023-04-27T18:27:09.972-03:00  INFO 11916 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-04-27T18:27:09.972-03:00  INFO 11916 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-04-27T18:27:10.702-03:00  INFO 11916 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-04-27T18:27:10.768-03:00  INFO 11916 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 3 JPA repository interfaces.
-2023-04-27T18:27:11.271-03:00  INFO 11916 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-04-27T18:27:11.281-03:00  INFO 11916 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-04-27T18:27:11.281-03:00  INFO 11916 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
-2023-04-27T18:27:11.331-03:00  INFO 11916 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-04-27T18:27:11.331-03:00  INFO 11916 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1359 ms
-2023-04-27T18:27:11.440-03:00  INFO 11916 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-04-27T18:27:11.487-03:00  INFO 11916 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
-2023-04-27T18:27:11.716-03:00  INFO 11916 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-04-27T18:27:11.866-03:00  INFO 11916 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7df5b1a
-2023-04-27T18:27:11.869-03:00  INFO 11916 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-04-27T18:27:11.921-03:00  INFO 11916 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-04-27T18:27:12.727-03:00  INFO 11916 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-04-27T18:27:12.735-03:00  INFO 11916 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-04-27T18:27:13.245-03:00  WARN 11916 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-04-27T18:27:13.527-03:00  INFO 11916 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-04-27T18:27:13.582-03:00  INFO 11916 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-04-27T18:27:13.590-03:00  INFO 11916 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 4.004 seconds (process running for 4.934)
-2023-04-27T18:27:13.592-03:00  INFO 11916 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
-2023-04-27T18:27:22.926-03:00  INFO 11916 --- [RMI TCP Connection(7)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2023-04-27T18:27:22.954-03:00  INFO 11916 --- [RMI TCP Connection(7)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-04-27T18:27:22.964-03:00  INFO 11916 --- [RMI TCP Connection(7)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-04-27T18:27:22.968-03:00  INFO 11916 --- [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-04-27T18:27:22.972-03:00  INFO 11916 --- [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-04-27T18:27:30.834-03:00  INFO 2076 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 2076 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
-2023-04-27T18:27:30.835-03:00  INFO 2076 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
-2023-04-27T18:27:30.880-03:00  INFO 2076 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-04-27T18:27:30.881-03:00  INFO 2076 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-04-27T18:27:31.411-03:00  INFO 2076 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-04-27T18:27:31.466-03:00  INFO 2076 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 3 JPA repository interfaces.
-2023-04-27T18:27:31.905-03:00  INFO 2076 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-04-27T18:27:31.912-03:00  INFO 2076 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-04-27T18:27:31.912-03:00  INFO 2076 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
-2023-04-27T18:27:31.965-03:00  INFO 2076 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-04-27T18:27:31.965-03:00  INFO 2076 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1084 ms
-2023-04-27T18:27:32.066-03:00  INFO 2076 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-04-27T18:27:32.099-03:00  INFO 2076 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
-2023-04-27T18:27:32.289-03:00  INFO 2076 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-04-27T18:27:32.414-03:00  INFO 2076 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5f1251a
-2023-04-27T18:27:32.414-03:00  INFO 2076 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-04-27T18:27:32.456-03:00  INFO 2076 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-04-27T18:27:33.211-03:00  INFO 2076 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-04-27T18:27:33.218-03:00  INFO 2076 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-04-27T18:27:33.688-03:00  WARN 2076 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-04-27T18:27:33.943-03:00  INFO 2076 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-04-27T18:27:33.976-03:00  INFO 2076 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-04-27T18:27:33.984-03:00  INFO 2076 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.49 seconds (process running for 4.086)
-2023-04-27T18:27:33.986-03:00  INFO 2076 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
-2023-04-27T18:27:44.561-03:00  INFO 2076 --- [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2023-04-27T18:27:44.585-03:00  INFO 2076 --- [RMI TCP Connection(6)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-04-27T18:27:44.599-03:00  INFO 2076 --- [RMI TCP Connection(6)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-04-27T18:27:44.604-03:00  INFO 2076 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-04-27T18:27:44.609-03:00  INFO 2076 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-02T10:02:15.717-03:00  INFO 6856 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 6856 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T10:02:15.720-03:00  INFO 6856 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T10:02:15.762-03:00  INFO 6856 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T10:02:15.763-03:00  INFO 6856 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T10:02:16.373-03:00  INFO 6856 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T10:02:16.424-03:00  INFO 6856 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 6 JPA repository interfaces.
+2023-05-02T10:02:16.822-03:00  INFO 6856 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T10:02:16.830-03:00  INFO 6856 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T10:02:16.831-03:00  INFO 6856 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T10:02:16.878-03:00  INFO 6856 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T10:02:16.878-03:00  INFO 6856 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1114 ms
+2023-05-02T10:02:16.970-03:00  INFO 6856 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T10:02:17.018-03:00  INFO 6856 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T10:02:17.216-03:00  INFO 6856 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T10:02:17.357-03:00  INFO 6856 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@58e0599e
+2023-05-02T10:02:17.359-03:00  INFO 6856 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T10:02:17.419-03:00  INFO 6856 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T10:02:18.129-03:00  INFO 6856 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T10:02:18.137-03:00  INFO 6856 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T10:02:18.288-03:00  WARN 6856 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T10:02:18.497-03:00  WARN 6856 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T10:02:18.560-03:00  WARN 6856 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T10:02:18.777-03:00  INFO 6856 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T10:02:18.805-03:00  INFO 6856 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T10:02:18.813-03:00  INFO 6856 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.418 seconds (process running for 4.006)
+2023-05-02T10:02:18.814-03:00  INFO 6856 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T10:02:31.037-03:00  INFO 6856 --- [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-05-02T10:02:31.050-03:00  INFO 6856 --- [RMI TCP Connection(6)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-02T10:02:31.056-03:00  INFO 6856 --- [RMI TCP Connection(6)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T10:02:31.057-03:00  INFO 6856 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-02T10:02:31.059-03:00  INFO 6856 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-02T17:37:47.738-03:00  INFO 6788 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 6788 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T17:37:47.739-03:00  INFO 6788 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T17:37:47.783-03:00  INFO 6788 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T17:37:47.783-03:00  INFO 6788 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T17:37:48.274-03:00  INFO 6788 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T17:37:48.329-03:00  INFO 6788 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 6 JPA repository interfaces.
+2023-05-02T17:37:48.774-03:00  INFO 6788 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T17:37:48.783-03:00  INFO 6788 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T17:37:48.783-03:00  INFO 6788 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T17:37:48.840-03:00  INFO 6788 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T17:37:48.840-03:00  INFO 6788 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1056 ms
+2023-05-02T17:37:48.949-03:00  INFO 6788 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T17:37:49.015-03:00  INFO 6788 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T17:37:49.262-03:00  INFO 6788 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T17:37:49.408-03:00  INFO 6788 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@57ac5830
+2023-05-02T17:37:49.410-03:00  INFO 6788 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T17:37:49.481-03:00  INFO 6788 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T17:37:50.529-03:00  INFO 6788 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T17:37:50.540-03:00  INFO 6788 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:37:50.753-03:00  WARN 6788 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T17:37:50.982-03:00  WARN 6788 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T17:37:51.011-03:00  WARN 6788 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T17:37:51.076-03:00  WARN 6788 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T17:37:51.381-03:00  INFO 6788 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T17:37:51.438-03:00  INFO 6788 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T17:37:51.447-03:00  INFO 6788 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 4.042 seconds (process running for 4.62)
+2023-05-02T17:37:51.448-03:00  INFO 6788 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T17:37:56.016-03:00  INFO 6788 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-05-02T17:37:56.031-03:00  INFO 6788 --- [RMI TCP Connection(2)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-02T17:37:56.037-03:00  INFO 6788 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:37:56.041-03:00  INFO 6788 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-02T17:37:56.047-03:00  INFO 6788 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-02T17:38:09.998-03:00  INFO 22068 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 22068 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T17:38:09.999-03:00  INFO 22068 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T17:38:10.041-03:00  INFO 22068 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T17:38:10.041-03:00  INFO 22068 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T17:38:10.458-03:00  INFO 22068 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T17:38:10.504-03:00  INFO 22068 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 6 JPA repository interfaces.
+2023-05-02T17:38:10.855-03:00  INFO 22068 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T17:38:10.861-03:00  INFO 22068 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T17:38:10.861-03:00  INFO 22068 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T17:38:10.910-03:00  INFO 22068 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T17:38:10.910-03:00  INFO 22068 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 868 ms
+2023-05-02T17:38:11.005-03:00  INFO 22068 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T17:38:11.035-03:00  INFO 22068 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T17:38:11.203-03:00  INFO 22068 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T17:38:11.313-03:00  INFO 22068 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@578fb557
+2023-05-02T17:38:11.314-03:00  INFO 22068 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T17:38:11.348-03:00  INFO 22068 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T17:38:12.001-03:00  INFO 22068 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T17:38:12.007-03:00  INFO 22068 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:38:12.172-03:00  WARN 22068 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T17:38:12.385-03:00  WARN 22068 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T17:38:12.408-03:00  WARN 22068 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T17:38:12.461-03:00  WARN 22068 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T17:38:12.696-03:00  INFO 22068 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T17:38:12.732-03:00  INFO 22068 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T17:38:12.741-03:00  INFO 22068 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.085 seconds (process running for 3.653)
+2023-05-02T17:38:12.743-03:00  INFO 22068 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T17:39:07.503-03:00  INFO 22068 --- [RMI TCP Connection(9)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-05-02T17:39:07.511-03:00  INFO 22068 --- [RMI TCP Connection(9)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-02T17:39:07.526-03:00  INFO 22068 --- [RMI TCP Connection(9)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:39:07.526-03:00  INFO 22068 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-02T17:39:07.543-03:00  INFO 22068 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-02T17:45:21.227-03:00  INFO 5032 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 5032 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T17:45:21.228-03:00  INFO 5032 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T17:45:21.273-03:00  INFO 5032 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T17:45:21.273-03:00  INFO 5032 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T17:45:21.736-03:00  INFO 5032 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T17:45:21.790-03:00  INFO 5032 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 6 JPA repository interfaces.
+2023-05-02T17:45:22.176-03:00  INFO 5032 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T17:45:22.183-03:00  INFO 5032 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T17:45:22.183-03:00  INFO 5032 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T17:45:22.227-03:00  INFO 5032 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T17:45:22.227-03:00  INFO 5032 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 953 ms
+2023-05-02T17:45:22.318-03:00  INFO 5032 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T17:45:22.348-03:00  INFO 5032 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T17:45:22.513-03:00  INFO 5032 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T17:45:22.629-03:00  INFO 5032 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@24b60aa3
+2023-05-02T17:45:22.630-03:00  INFO 5032 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T17:45:22.662-03:00  INFO 5032 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T17:45:23.317-03:00  INFO 5032 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T17:45:23.323-03:00  INFO 5032 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:45:23.470-03:00  WARN 5032 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T17:45:23.685-03:00  WARN 5032 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T17:45:23.719-03:00  WARN 5032 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T17:45:23.764-03:00  WARN 5032 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T17:45:23.927-03:00  WARN 5032 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'listaRestGeralController' method 
+com.renato.listrest.controllers.ListaRestGeralController#consultar(String, String, String)
+to {POST [/restritiva]}: There is already 'listaRestGeralController' bean method
+com.renato.listrest.controllers.ListaRestGeralController#consultar(String) mapped.
+2023-05-02T17:45:23.928-03:00  INFO 5032 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:45:23.932-03:00  INFO 5032 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-02T17:45:23.934-03:00  INFO 5032 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-02T17:45:23.936-03:00  INFO 5032 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-02T17:45:23.946-03:00  INFO 5032 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-05-02T17:45:23.970-03:00 ERROR 5032 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'listaRestGeralController' method 
+com.renato.listrest.controllers.ListaRestGeralController#consultar(String, String, String)
+to {POST [/restritiva]}: There is already 'listaRestGeralController' bean method
+com.renato.listrest.controllers.ListaRestGeralController#consultar(String) mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:973) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:917) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584) ~[spring-context-6.0.7.jar:6.0.7]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304) ~[spring-boot-3.0.5.jar:3.0.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293) ~[spring-boot-3.0.5.jar:3.0.5]
+	at com.renato.listrest.ListaRestritivaApplication.main(ListaRestritivaApplication.java:16) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.5.jar:3.0.5]
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'listaRestGeralController' method 
+com.renato.listrest.controllers.ListaRestGeralController#consultar(String, String, String)
+to {POST [/restritiva]}: There is already 'listaRestGeralController' bean method
+com.renato.listrest.controllers.ListaRestGeralController#consultar(String) mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:667) ~[spring-webmvc-6.0.7.jar:6.0.7]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:633) ~[spring-webmvc-6.0.7.jar:6.0.7]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:331) ~[spring-webmvc-6.0.7.jar:6.0.7]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:438) ~[spring-webmvc-6.0.7.jar:6.0.7]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:76) ~[spring-webmvc-6.0.7.jar:6.0.7]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$2(AbstractHandlerMethodMapping.java:298) ~[spring-webmvc-6.0.7.jar:6.0.7]
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721) ~[na:na]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:296) ~[spring-webmvc-6.0.7.jar:6.0.7]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.processCandidateBean(AbstractHandlerMethodMapping.java:265) ~[spring-webmvc-6.0.7.jar:6.0.7]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:224) ~[spring-webmvc-6.0.7.jar:6.0.7]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:212) ~[spring-webmvc-6.0.7.jar:6.0.7]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:225) ~[spring-webmvc-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816) ~[spring-beans-6.0.7.jar:6.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766) ~[spring-beans-6.0.7.jar:6.0.7]
+	... 21 common frames omitted
+
+2023-05-02T17:46:01.928-03:00  INFO 24948 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 24948 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T17:46:01.930-03:00  INFO 24948 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T17:46:01.971-03:00  INFO 24948 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T17:46:01.971-03:00  INFO 24948 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T17:46:02.423-03:00  INFO 24948 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T17:46:02.477-03:00  INFO 24948 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 6 JPA repository interfaces.
+2023-05-02T17:46:02.844-03:00  INFO 24948 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T17:46:02.850-03:00  INFO 24948 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T17:46:02.850-03:00  INFO 24948 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T17:46:02.893-03:00  INFO 24948 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T17:46:02.893-03:00  INFO 24948 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 921 ms
+2023-05-02T17:46:02.984-03:00  INFO 24948 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T17:46:03.014-03:00  INFO 24948 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T17:46:03.179-03:00  INFO 24948 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T17:46:03.292-03:00  INFO 24948 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@54faff15
+2023-05-02T17:46:03.293-03:00  INFO 24948 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T17:46:03.325-03:00  INFO 24948 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T17:46:03.988-03:00  INFO 24948 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T17:46:03.994-03:00  INFO 24948 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:46:04.145-03:00  WARN 24948 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T17:46:04.366-03:00  WARN 24948 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T17:46:04.414-03:00  WARN 24948 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T17:46:04.482-03:00  WARN 24948 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T17:46:04.717-03:00  INFO 24948 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T17:46:04.743-03:00  INFO 24948 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T17:46:04.750-03:00  INFO 24948 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.155 seconds (process running for 3.741)
+2023-05-02T17:46:04.753-03:00  INFO 24948 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T17:46:55.732-03:00  INFO 24948 --- [RMI TCP Connection(10)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-05-02T17:46:55.745-03:00  INFO 24948 --- [RMI TCP Connection(10)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-02T17:46:55.750-03:00  INFO 24948 --- [RMI TCP Connection(10)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:46:55.752-03:00  INFO 24948 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-02T17:46:55.755-03:00  INFO 24948 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-02T17:47:02.130-03:00  INFO 25952 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 25952 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T17:47:02.131-03:00  INFO 25952 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T17:47:02.175-03:00  INFO 25952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T17:47:02.176-03:00  INFO 25952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T17:47:02.618-03:00  INFO 25952 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T17:47:02.669-03:00  INFO 25952 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 6 JPA repository interfaces.
+2023-05-02T17:47:03.041-03:00  INFO 25952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T17:47:03.047-03:00  INFO 25952 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T17:47:03.048-03:00  INFO 25952 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T17:47:03.092-03:00  INFO 25952 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T17:47:03.093-03:00  INFO 25952 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 916 ms
+2023-05-02T17:47:03.182-03:00  INFO 25952 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T17:47:03.210-03:00  INFO 25952 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T17:47:03.375-03:00  INFO 25952 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T17:47:03.490-03:00  INFO 25952 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@45074393
+2023-05-02T17:47:03.491-03:00  INFO 25952 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T17:47:03.525-03:00  INFO 25952 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T17:47:04.189-03:00  INFO 25952 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T17:47:04.197-03:00  INFO 25952 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:47:04.354-03:00  WARN 25952 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T17:47:04.567-03:00  WARN 25952 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T17:47:04.596-03:00  WARN 25952 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T17:47:04.650-03:00  WARN 25952 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T17:47:04.885-03:00  INFO 25952 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T17:47:04.915-03:00  INFO 25952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T17:47:04.922-03:00  INFO 25952 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.133 seconds (process running for 3.703)
+2023-05-02T17:47:04.923-03:00  INFO 25952 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T17:47:20.775-03:00  INFO 25952 --- [RMI TCP Connection(7)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-05-02T17:47:20.788-03:00  INFO 25952 --- [RMI TCP Connection(7)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-02T17:47:20.793-03:00  INFO 25952 --- [RMI TCP Connection(7)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:47:20.794-03:00  INFO 25952 --- [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-02T17:47:20.799-03:00  INFO 25952 --- [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-02T17:47:49.321-03:00  INFO 25824 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 25824 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T17:47:49.322-03:00  INFO 25824 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T17:47:49.363-03:00  INFO 25824 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T17:47:49.363-03:00  INFO 25824 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T17:47:49.766-03:00  INFO 25824 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T17:47:49.817-03:00  INFO 25824 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 6 JPA repository interfaces.
+2023-05-02T17:47:50.192-03:00  INFO 25824 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T17:47:50.199-03:00  INFO 25824 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T17:47:50.199-03:00  INFO 25824 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T17:47:50.241-03:00  INFO 25824 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T17:47:50.241-03:00  INFO 25824 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 878 ms
+2023-05-02T17:47:50.332-03:00  INFO 25824 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T17:47:50.361-03:00  INFO 25824 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T17:47:50.526-03:00  INFO 25824 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T17:47:50.639-03:00  INFO 25824 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2f18beae
+2023-05-02T17:47:50.640-03:00  INFO 25824 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T17:47:50.673-03:00  INFO 25824 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T17:47:51.305-03:00  INFO 25824 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T17:47:51.311-03:00  INFO 25824 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:47:51.450-03:00  WARN 25824 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T17:47:51.662-03:00  WARN 25824 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T17:47:51.691-03:00  WARN 25824 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T17:47:51.745-03:00  WARN 25824 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T17:47:51.987-03:00  INFO 25824 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T17:47:52.013-03:00  INFO 25824 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T17:47:52.021-03:00  INFO 25824 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.004 seconds (process running for 3.572)
+2023-05-02T17:47:52.022-03:00  INFO 25824 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T17:47:55.766-03:00  INFO 25824 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-02T17:47:55.766-03:00  INFO 25824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-02T17:47:55.768-03:00  INFO 25824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-05-02T17:47:55.792-03:00  WARN 25824 --- [http-nio-8080-exec-1] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.controllers.ListaRestGeralController
+2023-05-02T17:47:55.844-03:00  WARN 25824 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException: temporal]
+2023-05-02T17:48:25.072-03:00  INFO 25824 --- [RMI TCP Connection(10)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-05-02T17:48:25.082-03:00  INFO 25824 --- [RMI TCP Connection(10)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-02T17:48:25.083-03:00  INFO 25824 --- [RMI TCP Connection(10)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-02T17:48:25.088-03:00  INFO 25824 --- [RMI TCP Connection(10)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:48:25.090-03:00  INFO 25824 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-02T17:48:25.094-03:00  INFO 25824 --- [RMI TCP Connection(10)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-02T17:48:42.479-03:00  INFO 25268 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 25268 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T17:48:42.480-03:00  INFO 25268 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T17:48:42.523-03:00  INFO 25268 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T17:48:42.523-03:00  INFO 25268 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T17:48:42.999-03:00  INFO 25268 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T17:48:43.055-03:00  INFO 25268 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 6 JPA repository interfaces.
+2023-05-02T17:48:43.487-03:00  INFO 25268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T17:48:43.494-03:00  INFO 25268 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T17:48:43.494-03:00  INFO 25268 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T17:48:43.548-03:00  INFO 25268 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T17:48:43.548-03:00  INFO 25268 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1025 ms
+2023-05-02T17:48:43.674-03:00  INFO 25268 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T17:48:43.710-03:00  INFO 25268 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T17:48:43.913-03:00  INFO 25268 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T17:48:44.041-03:00  INFO 25268 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4932cb28
+2023-05-02T17:48:44.050-03:00  INFO 25268 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T17:48:44.093-03:00  INFO 25268 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T17:48:44.878-03:00  INFO 25268 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T17:48:44.886-03:00  INFO 25268 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:48:45.057-03:00  WARN 25268 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T17:48:45.320-03:00  WARN 25268 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T17:48:45.365-03:00  WARN 25268 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T17:48:45.427-03:00  WARN 25268 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T17:48:45.713-03:00  INFO 25268 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T17:48:45.745-03:00  INFO 25268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T17:48:45.755-03:00  INFO 25268 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.651 seconds (process running for 4.528)
+2023-05-02T17:48:45.757-03:00  INFO 25268 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T17:48:50.186-03:00  INFO 25268 --- [http-nio-8080-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-02T17:48:50.187-03:00  INFO 25268 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-02T17:48:50.188-03:00  INFO 25268 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-05-02T17:48:50.213-03:00  WARN 25268 --- [http-nio-8080-exec-5] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.controllers.ListaRestGeralController
+2023-05-02T17:49:07.594-03:00  WARN 25268 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException: temporal]
+2023-05-02T17:50:05.539-03:00  INFO 3696 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 3696 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T17:50:05.540-03:00  INFO 3696 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T17:50:05.582-03:00  INFO 3696 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T17:50:05.582-03:00  INFO 3696 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T17:50:06.059-03:00  INFO 3696 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T17:50:06.117-03:00  INFO 3696 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 6 JPA repository interfaces.
+2023-05-02T17:50:06.578-03:00  INFO 3696 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T17:50:06.585-03:00  INFO 3696 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T17:50:06.585-03:00  INFO 3696 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T17:50:06.634-03:00  INFO 3696 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T17:50:06.634-03:00  INFO 3696 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1051 ms
+2023-05-02T17:50:06.741-03:00  INFO 3696 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T17:50:06.782-03:00  INFO 3696 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T17:50:06.986-03:00  INFO 3696 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T17:50:07.111-03:00  INFO 3696 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@41b2d856
+2023-05-02T17:50:07.113-03:00  INFO 3696 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T17:50:07.156-03:00  INFO 3696 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T17:50:07.908-03:00  INFO 3696 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T17:50:07.918-03:00  INFO 3696 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:50:08.080-03:00  WARN 3696 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T17:50:08.334-03:00  WARN 3696 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T17:50:08.367-03:00  WARN 3696 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T17:50:08.416-03:00  WARN 3696 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T17:50:08.748-03:00  INFO 3696 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T17:50:08.797-03:00  INFO 3696 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T17:50:08.806-03:00  INFO 3696 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.64 seconds (process running for 4.481)
+2023-05-02T17:50:08.811-03:00  INFO 3696 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T17:52:20.746-03:00  INFO 3696 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-02T17:52:20.747-03:00  INFO 3696 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-02T17:52:20.748-03:00  INFO 3696 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-05-02T17:52:20.771-03:00  WARN 3696 --- [http-nio-8080-exec-1] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.controllers.ListaRestGeralController
+2023-05-02T17:54:17.469-03:00  INFO 19004 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 19004 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T17:54:17.470-03:00  INFO 19004 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T17:54:17.516-03:00  INFO 19004 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T17:54:17.517-03:00  INFO 19004 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T17:54:18.004-03:00  INFO 19004 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T17:54:18.062-03:00  INFO 19004 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 6 JPA repository interfaces.
+2023-05-02T17:54:18.494-03:00  INFO 19004 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T17:54:18.501-03:00  INFO 19004 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T17:54:18.502-03:00  INFO 19004 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T17:54:18.547-03:00  INFO 19004 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T17:54:18.547-03:00  INFO 19004 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1030 ms
+2023-05-02T17:54:18.653-03:00  INFO 19004 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T17:54:18.689-03:00  INFO 19004 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T17:54:18.886-03:00  INFO 19004 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T17:54:19.027-03:00  INFO 19004 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2efcc669
+2023-05-02T17:54:19.028-03:00  INFO 19004 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T17:54:19.067-03:00  INFO 19004 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T17:54:19.836-03:00  INFO 19004 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T17:54:19.842-03:00  INFO 19004 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:54:20.017-03:00  WARN 19004 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T17:54:20.285-03:00  WARN 19004 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T17:54:20.320-03:00  WARN 19004 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T17:54:20.378-03:00  WARN 19004 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T17:54:20.637-03:00  INFO 19004 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T17:54:20.670-03:00  INFO 19004 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T17:54:20.678-03:00  INFO 19004 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.587 seconds (process running for 4.376)
+2023-05-02T17:54:20.680-03:00  INFO 19004 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T17:54:24.857-03:00  INFO 19004 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-02T17:54:24.857-03:00  INFO 19004 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-02T17:54:24.858-03:00  INFO 19004 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-05-02T17:54:24.885-03:00  WARN 19004 --- [http-nio-8080-exec-2] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.controllers.ListaRestGeralController
+2023-05-02T17:56:13.331-03:00  INFO 12304 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 12304 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T17:56:13.332-03:00  INFO 12304 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T17:56:13.370-03:00  INFO 12304 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T17:56:13.370-03:00  INFO 12304 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T17:56:13.831-03:00  INFO 12304 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T17:56:13.883-03:00  INFO 12304 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 6 JPA repository interfaces.
+2023-05-02T17:56:14.319-03:00  INFO 12304 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T17:56:14.327-03:00  INFO 12304 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T17:56:14.328-03:00  INFO 12304 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T17:56:14.374-03:00  INFO 12304 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T17:56:14.375-03:00  INFO 12304 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1003 ms
+2023-05-02T17:56:14.483-03:00  INFO 12304 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T17:56:14.520-03:00  INFO 12304 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T17:56:14.719-03:00  INFO 12304 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T17:56:14.838-03:00  INFO 12304 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6cc8134d
+2023-05-02T17:56:14.840-03:00  INFO 12304 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T17:56:14.882-03:00  INFO 12304 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T17:56:15.623-03:00  INFO 12304 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T17:56:15.633-03:00  INFO 12304 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:56:15.804-03:00  WARN 12304 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T17:56:16.067-03:00  WARN 12304 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T17:56:16.101-03:00  WARN 12304 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T17:56:16.159-03:00  WARN 12304 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T17:56:16.419-03:00  INFO 12304 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T17:56:16.461-03:00  INFO 12304 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T17:56:16.469-03:00  INFO 12304 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.508 seconds (process running for 4.343)
+2023-05-02T17:56:16.471-03:00  INFO 12304 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T17:56:19.910-03:00  INFO 12304 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-02T17:56:19.911-03:00  INFO 12304 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-02T17:56:19.912-03:00  INFO 12304 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-05-02T17:56:19.936-03:00  WARN 12304 --- [http-nio-8080-exec-1] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.controllers.ListaRestGeralController
+2023-05-02T17:56:44.753-03:00  INFO 22688 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 22688 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T17:56:44.754-03:00  INFO 22688 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T17:56:44.797-03:00  INFO 22688 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T17:56:44.798-03:00  INFO 22688 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T17:56:45.277-03:00  INFO 22688 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T17:56:45.330-03:00  INFO 22688 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 6 JPA repository interfaces.
+2023-05-02T17:56:45.758-03:00  INFO 22688 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T17:56:45.765-03:00  INFO 22688 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T17:56:45.766-03:00  INFO 22688 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T17:56:45.810-03:00  INFO 22688 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T17:56:45.810-03:00  INFO 22688 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1012 ms
+2023-05-02T17:56:45.916-03:00  INFO 22688 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T17:56:45.953-03:00  INFO 22688 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T17:56:46.161-03:00  INFO 22688 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T17:56:46.281-03:00  INFO 22688 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6613e2d8
+2023-05-02T17:56:46.284-03:00  INFO 22688 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T17:56:46.322-03:00  INFO 22688 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T17:56:47.128-03:00  INFO 22688 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T17:56:47.136-03:00  INFO 22688 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T17:56:47.304-03:00  WARN 22688 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T17:56:47.544-03:00  WARN 22688 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T17:56:47.579-03:00  WARN 22688 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T17:56:47.629-03:00  WARN 22688 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T17:56:47.886-03:00  INFO 22688 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T17:56:47.920-03:00  INFO 22688 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T17:56:47.930-03:00  INFO 22688 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.543 seconds (process running for 4.318)
+2023-05-02T17:56:47.932-03:00  INFO 22688 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T17:56:55.594-03:00  INFO 22688 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-02T17:56:55.594-03:00  INFO 22688 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-02T17:56:55.595-03:00  INFO 22688 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-05-02T17:56:55.619-03:00  WARN 22688 --- [http-nio-8080-exec-2] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.controllers.ListaRestGeralController
+2023-05-02T18:00:50.060-03:00  INFO 23524 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 23524 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T18:00:50.062-03:00  INFO 23524 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T18:00:50.108-03:00  INFO 23524 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T18:00:50.109-03:00  INFO 23524 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T18:00:50.589-03:00  INFO 23524 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T18:00:50.650-03:00  INFO 23524 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 6 JPA repository interfaces.
+2023-05-02T18:00:51.102-03:00  INFO 23524 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T18:00:51.109-03:00  INFO 23524 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T18:00:51.110-03:00  INFO 23524 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T18:00:51.157-03:00  INFO 23524 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T18:00:51.157-03:00  INFO 23524 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1048 ms
+2023-05-02T18:00:51.264-03:00  INFO 23524 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T18:00:51.299-03:00  INFO 23524 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T18:00:51.501-03:00  INFO 23524 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T18:00:51.620-03:00  INFO 23524 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6e4ce58c
+2023-05-02T18:00:51.623-03:00  INFO 23524 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T18:00:51.667-03:00  INFO 23524 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T18:00:52.431-03:00  INFO 23524 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T18:00:52.439-03:00  INFO 23524 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T18:00:52.613-03:00  WARN 23524 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T18:00:52.878-03:00  WARN 23524 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T18:00:52.916-03:00  WARN 23524 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T18:00:52.970-03:00  WARN 23524 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T18:00:53.222-03:00  INFO 23524 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T18:00:53.258-03:00  INFO 23524 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T18:00:53.267-03:00  INFO 23524 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.569 seconds (process running for 4.359)
+2023-05-02T18:00:53.269-03:00  INFO 23524 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T18:06:26.610-03:00  INFO 25736 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 25736 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T18:06:26.611-03:00  INFO 25736 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T18:06:26.656-03:00  INFO 25736 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T18:06:26.657-03:00  INFO 25736 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T18:06:27.210-03:00  INFO 25736 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T18:06:27.274-03:00  INFO 25736 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 6 JPA repository interfaces.
+2023-05-02T18:06:27.686-03:00  INFO 25736 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T18:06:27.693-03:00  INFO 25736 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T18:06:27.693-03:00  INFO 25736 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T18:06:27.741-03:00  INFO 25736 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T18:06:27.741-03:00  INFO 25736 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1084 ms
+2023-05-02T18:06:27.843-03:00  INFO 25736 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T18:06:27.877-03:00  INFO 25736 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T18:06:28.073-03:00  INFO 25736 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T18:06:28.197-03:00  INFO 25736 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@42fea060
+2023-05-02T18:06:28.198-03:00  INFO 25736 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T18:06:28.238-03:00  INFO 25736 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T18:06:28.996-03:00  INFO 25736 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T18:06:29.004-03:00  INFO 25736 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T18:06:29.180-03:00  WARN 25736 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T18:06:29.451-03:00  WARN 25736 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T18:06:29.489-03:00  WARN 25736 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T18:06:29.538-03:00  WARN 25736 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T18:06:29.811-03:00  INFO 25736 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T18:06:29.845-03:00  INFO 25736 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T18:06:29.853-03:00  INFO 25736 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.628 seconds (process running for 4.475)
+2023-05-02T18:06:29.856-03:00  INFO 25736 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T18:07:07.787-03:00  INFO 4204 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 4204 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T18:07:07.789-03:00  INFO 4204 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T18:07:07.833-03:00  INFO 4204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T18:07:07.833-03:00  INFO 4204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T18:07:08.272-03:00  INFO 4204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T18:07:08.320-03:00  INFO 4204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 6 JPA repository interfaces.
+2023-05-02T18:07:08.682-03:00  INFO 4204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T18:07:08.688-03:00  INFO 4204 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T18:07:08.688-03:00  INFO 4204 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T18:07:08.731-03:00  INFO 4204 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T18:07:08.731-03:00  INFO 4204 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 897 ms
+2023-05-02T18:07:08.817-03:00  INFO 4204 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T18:07:08.853-03:00  INFO 4204 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T18:07:09.011-03:00  INFO 4204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T18:07:09.133-03:00  INFO 4204 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@417c1a90
+2023-05-02T18:07:09.147-03:00  INFO 4204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T18:07:09.183-03:00  INFO 4204 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T18:07:09.846-03:00  INFO 4204 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T18:07:09.852-03:00  INFO 4204 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T18:07:10.000-03:00  WARN 4204 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T18:07:10.207-03:00  WARN 4204 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T18:07:10.232-03:00  WARN 4204 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T18:07:10.283-03:00  WARN 4204 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T18:07:10.495-03:00  INFO 4204 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T18:07:10.521-03:00  INFO 4204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T18:07:10.527-03:00  INFO 4204 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.042 seconds (process running for 3.534)
+2023-05-02T18:07:10.531-03:00  INFO 4204 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T18:07:33.860-03:00  INFO 4204 --- [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-05-02T18:07:33.874-03:00  INFO 4204 --- [RMI TCP Connection(6)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-02T18:07:33.879-03:00  INFO 4204 --- [RMI TCP Connection(6)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T18:07:33.882-03:00  INFO 4204 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-02T18:07:33.885-03:00  INFO 4204 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-02T18:07:49.950-03:00  INFO 22600 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 22600 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T18:07:49.952-03:00  INFO 22600 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T18:07:49.996-03:00  INFO 22600 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T18:07:49.997-03:00  INFO 22600 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T18:07:50.436-03:00  INFO 22600 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T18:07:50.485-03:00  INFO 22600 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 6 JPA repository interfaces.
+2023-05-02T18:07:50.864-03:00  INFO 22600 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T18:07:50.870-03:00  INFO 22600 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T18:07:50.870-03:00  INFO 22600 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T18:07:50.915-03:00  INFO 22600 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T18:07:50.915-03:00  INFO 22600 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 918 ms
+2023-05-02T18:07:51.005-03:00  INFO 22600 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T18:07:51.037-03:00  INFO 22600 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T18:07:51.200-03:00  INFO 22600 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T18:07:51.316-03:00  INFO 22600 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@79aca1f4
+2023-05-02T18:07:51.317-03:00  INFO 22600 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T18:07:51.347-03:00  INFO 22600 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T18:07:52.058-03:00  INFO 22600 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T18:07:52.065-03:00  INFO 22600 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T18:07:52.217-03:00  WARN 22600 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T18:07:52.449-03:00  WARN 22600 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T18:07:52.479-03:00  WARN 22600 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T18:07:52.523-03:00  WARN 22600 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T18:07:52.765-03:00  INFO 22600 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T18:07:52.796-03:00  INFO 22600 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T18:07:52.803-03:00  INFO 22600 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.172 seconds (process running for 3.765)
+2023-05-02T18:07:52.806-03:00  INFO 22600 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T18:08:19.571-03:00  INFO 22600 --- [http-nio-8080-exec-7] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-02T18:08:19.571-03:00  INFO 22600 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-02T18:08:19.572-03:00  INFO 22600 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-05-02T18:08:19.592-03:00  WARN 22600 --- [http-nio-8080-exec-7] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.controllers.ListaRestGeralController
+2023-05-02T18:08:19.642-03:00  WARN 22600 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NullPointerException: temporal]
+2023-05-02T18:08:30.770-03:00  INFO 22600 --- [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-05-02T18:08:30.779-03:00  INFO 22600 --- [RMI TCP Connection(6)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-02T18:08:30.780-03:00  INFO 22600 --- [RMI TCP Connection(6)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-02T18:08:30.784-03:00  INFO 22600 --- [RMI TCP Connection(6)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T18:08:30.787-03:00  INFO 22600 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-02T18:08:30.792-03:00  INFO 22600 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-02T18:08:38.267-03:00  INFO 13372 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 13372 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T18:08:38.268-03:00  INFO 13372 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T18:08:38.310-03:00  INFO 13372 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T18:08:38.310-03:00  INFO 13372 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T18:08:38.761-03:00  INFO 13372 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T18:08:38.818-03:00  INFO 13372 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 6 JPA repository interfaces.
+2023-05-02T18:08:39.247-03:00  INFO 13372 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T18:08:39.253-03:00  INFO 13372 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T18:08:39.254-03:00  INFO 13372 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T18:08:39.299-03:00  INFO 13372 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T18:08:39.300-03:00  INFO 13372 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 989 ms
+2023-05-02T18:08:39.406-03:00  INFO 13372 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T18:08:39.444-03:00  INFO 13372 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T18:08:39.637-03:00  INFO 13372 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T18:08:39.759-03:00  INFO 13372 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1835a4c8
+2023-05-02T18:08:39.761-03:00  INFO 13372 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T18:08:39.800-03:00  INFO 13372 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T18:08:40.542-03:00  INFO 13372 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T18:08:40.550-03:00  INFO 13372 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T18:08:40.718-03:00  WARN 13372 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T18:08:40.998-03:00  WARN 13372 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T18:08:41.033-03:00  WARN 13372 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T18:08:41.085-03:00  WARN 13372 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T18:08:41.338-03:00  INFO 13372 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T18:08:41.375-03:00  INFO 13372 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T18:08:41.383-03:00  INFO 13372 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.491 seconds (process running for 4.32)
+2023-05-02T18:08:41.385-03:00  INFO 13372 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T18:08:48.621-03:00  INFO 13372 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-02T18:08:48.621-03:00  INFO 13372 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-02T18:08:48.622-03:00  INFO 13372 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-05-02T18:08:48.645-03:00  WARN 13372 --- [http-nio-8080-exec-2] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.controllers.ListaRestGeralController
+2023-05-02T18:12:07.236-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 7256 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T18:12:07.237-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T18:12:07.273-03:00  INFO 7256 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-02T18:12:07.274-03:00  INFO 7256 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-02T18:12:07.696-03:00  INFO 7256 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T18:12:07.744-03:00  INFO 7256 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 6 JPA repository interfaces.
+2023-05-02T18:12:08.098-03:00  INFO 7256 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T18:12:08.104-03:00  INFO 7256 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T18:12:08.104-03:00  INFO 7256 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T18:12:08.147-03:00  INFO 7256 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T18:12:08.147-03:00  INFO 7256 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 873 ms
+2023-05-02T18:12:08.236-03:00  INFO 7256 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T18:12:08.271-03:00  INFO 7256 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-02T18:12:08.431-03:00  INFO 7256 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-02T18:12:08.546-03:00  INFO 7256 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@200e1d5a
+2023-05-02T18:12:08.547-03:00  INFO 7256 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-02T18:12:08.579-03:00  INFO 7256 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T18:12:09.264-03:00  INFO 7256 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T18:12:09.271-03:00  INFO 7256 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T18:12:09.431-03:00  WARN 7256 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T18:12:09.660-03:00  WARN 7256 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T18:12:09.689-03:00  WARN 7256 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T18:12:09.752-03:00  WARN 7256 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T18:12:10.008-03:00  INFO 7256 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T18:12:10.037-03:00  INFO 7256 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T18:12:10.043-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 3.093 seconds (process running for 3.598)
+2023-05-02T18:12:10.047-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T18:12:13.161-03:00  INFO 7256 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-02T18:12:13.163-03:00  INFO 7256 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-02T18:12:13.163-03:00  INFO 7256 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-05-02T18:12:13.184-03:00  WARN 7256 --- [http-nio-8080-exec-2] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.controllers.ListaRestGeralController
+2023-05-02T18:13:23.295-03:00  INFO 7256 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-05-02T18:13:23.304-03:00  INFO 7256 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-02T18:13:23.305-03:00  INFO 7256 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-02T18:13:23.312-03:00  INFO 7256 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T18:13:23.314-03:00  INFO 7256 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-02T18:13:23.320-03:00  INFO 7256 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-02T18:13:23.369-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Criando o Sistema - Lista Restitiva ....
+2023-05-02T18:13:23.390-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 7256 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T18:13:23.391-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T18:13:23.474-03:00  INFO 7256 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T18:13:23.484-03:00  INFO 7256 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 6 JPA repository interfaces.
+2023-05-02T18:13:23.532-03:00  INFO 7256 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T18:13:23.532-03:00  INFO 7256 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T18:13:23.532-03:00  INFO 7256 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T18:13:23.544-03:00  INFO 7256 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T18:13:23.544-03:00  INFO 7256 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 152 ms
+2023-05-02T18:13:23.567-03:00  INFO 7256 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T18:13:23.571-03:00  INFO 7256 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-05-02T18:13:23.610-03:00  INFO 7256 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@cf72b05
+2023-05-02T18:13:23.611-03:00  INFO 7256 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-05-02T18:13:23.616-03:00  INFO 7256 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T18:13:23.736-03:00  INFO 7256 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T18:13:23.737-03:00  INFO 7256 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T18:13:23.761-03:00  WARN 7256 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T18:13:23.782-03:00  WARN 7256 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T18:13:23.795-03:00  WARN 7256 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T18:13:23.819-03:00  WARN 7256 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T18:13:23.869-03:00  INFO 7256 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T18:13:23.876-03:00  INFO 7256 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T18:13:23.880-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 0.507 seconds (process running for 77.435)
+2023-05-02T18:13:23.883-03:00  INFO 7256 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-05-02T18:13:23.883-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T18:13:40.661-03:00  INFO 7256 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-02T18:13:40.661-03:00  INFO 7256 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-02T18:13:40.662-03:00  INFO 7256 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-05-02T18:13:40.663-03:00  WARN 7256 --- [http-nio-8080-exec-2] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.controllers.ListaRestGeralController
+2023-05-02T18:13:52.999-03:00  INFO 7256 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-05-02T18:13:53.011-03:00  INFO 7256 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-02T18:13:53.012-03:00  INFO 7256 --- [Thread-7] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-02T18:13:53.015-03:00  INFO 7256 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T18:13:53.015-03:00  INFO 7256 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-05-02T18:13:53.020-03:00  INFO 7256 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-05-02T18:13:53.070-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Criando o Sistema - Lista Restitiva ....
+2023-05-02T18:13:53.089-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Starting ListaRestritivaApplication using Java 17.0.4.1 with PID 7256 (C:\projetos\sts\ListaRestritiva\target\classes started by renat in C:\projetos\sts\ListaRestritiva)
+2023-05-02T18:13:53.090-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-02T18:13:53.178-03:00  INFO 7256 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-02T18:13:53.189-03:00  INFO 7256 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 6 JPA repository interfaces.
+2023-05-02T18:13:53.230-03:00  INFO 7256 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-02T18:13:53.231-03:00  INFO 7256 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-02T18:13:53.231-03:00  INFO 7256 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-02T18:13:53.240-03:00  INFO 7256 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-02T18:13:53.240-03:00  INFO 7256 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 149 ms
+2023-05-02T18:13:53.258-03:00  INFO 7256 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-02T18:13:53.261-03:00  INFO 7256 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2023-05-02T18:13:53.299-03:00  INFO 7256 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@b1275bd
+2023-05-02T18:13:53.300-03:00  INFO 7256 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2023-05-02T18:13:53.304-03:00  INFO 7256 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-02T18:13:53.407-03:00  INFO 7256 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-02T18:13:53.408-03:00  INFO 7256 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T18:13:53.431-03:00  WARN 7256 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.DNISRepository
+2023-05-02T18:13:53.454-03:00  WARN 7256 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.PhoneRepository
+2023-05-02T18:13:53.469-03:00  WARN 7256 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.renato.listrest.models.repositories.ListaRestGeralRepository
+2023-05-02T18:13:53.494-03:00  WARN 7256 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-02T18:13:53.542-03:00  INFO 7256 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-02T18:13:53.552-03:00  INFO 7256 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-02T18:13:53.555-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Started ListaRestritivaApplication in 0.481 seconds (process running for 107.11)
+2023-05-02T18:13:53.558-03:00  INFO 7256 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-05-02T18:13:53.558-03:00  INFO 7256 --- [restartedMain] c.r.listrest.ListaRestritivaApplication  : Sistema Criado com sucesso!
+2023-05-02T18:13:54.978-03:00  INFO 7256 --- [RMI TCP Connection(13)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-05-02T18:13:54.986-03:00  INFO 7256 --- [RMI TCP Connection(13)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-02T18:13:54.989-03:00  INFO 7256 --- [RMI TCP Connection(13)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-02T18:13:54.990-03:00  INFO 7256 --- [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2023-05-02T18:13:54.992-03:00  INFO 7256 --- [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.

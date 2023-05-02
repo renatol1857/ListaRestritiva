@@ -1,8 +1,8 @@
 package com.renato.listrest.models.enums;
 
 public enum PadroesEn {
-	TAMANHO_MIN,
-	TAMANHO_MAX,
+	LENGTH_MIN,
+	LENGTH_MAX,
 	START_WITH,
 	END_WITH,
 	CONTENT,
@@ -10,5 +10,7 @@ public enum PadroesEn {
 	NOT_LANDLINE,
 	NOT_DDI,
 	NOT_DDD,
-	NOT_SEQUENCIAL;
+	NOT_SEQUENTIAL,
+	NOT_ANONYMOUS,
+	NOT_STRING;
 }

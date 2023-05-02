@@ -2,6 +2,8 @@ package com.renato.listrest.models.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -43,6 +45,11 @@ public class ListaRestGeral implements Serializable {
 		this.fullfone = fullfone;
 	}
 	
+	public String getDh() {
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
+		return fmt.format(this.dh);
+	}
+	
 	public ListaRestGeral(String ddi, String ddd, String fone) {
 		this.ddi = ddi;
 		this.ddd = ddd;
@@ -65,6 +72,12 @@ public class ListaRestGeral implements Serializable {
 			return false;
 		ListaRestGeral other = (ListaRestGeral) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public String toString() {
+		return "ListaRestGeral [id=" + id + ", fullfone=" + fullfone + ", ddi=" + ddi + ", ddd=" + ddd + ", fone="
+				+ fone + ", dh=" + this.getDh() + "]";
 	}
 
 
