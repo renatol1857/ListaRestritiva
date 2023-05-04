@@ -27,7 +27,7 @@ public class DNISService {
 		LogSrv.logger.info("DNIS save " + dnis);
 		Optional<DNIS> obj = dnisRepository.findByDnisIgnoreCase(dnis.getDnis());
 		if (obj.isPresent())
-			throw new CustomErrorException(HttpStatus.CONFLICT, "dnis ja cadastrado.");
+			return obj.get();
 		return dnisRepository.save(dnis);
 	}
 
@@ -36,39 +36,34 @@ public class DNISService {
 		// LogSrv.logger.info("update save " + dnis);
 		Optional<DNIS> obj = dnisRepository.findById(dnis.getId());
 		if (!obj.isPresent())
-			throw new CustomErrorException(HttpStatus.CONFLICT, "ID nao cadastrado.");
+			return save(dnis);
 		DNIS regDnis = obj.get();
 		if (!regDnis.getDnis().equals(dnis.getDnis()))
-			throw new CustomErrorException(HttpStatus.CONFLICT, "dnis nao pode ser alterado.");
+			throw new CustomErrorException(HttpStatus.CONFLICT, "DNIS nao pode ser alterado.");
 		regDnis.setAlias(dnis.getAlias());
 		regDnis.setDescricao(dnis.getDescricao());
 		regDnis.setStatus(dnis.getStatus());
-		// dnisRepository.upDnisById(dnis.getAlias(),dnis.getDescricao(),
-		// dnis.getStatus(),dnis.getId());
-
+		// dnisRepository.upDnisById(dnis.getAlias(),dnis.getDescricao(),dnis.getStatus(),dnis.getId());
 		return dnisRepository.save(regDnis);
 	}
 
 	public DNIS findByID(Long id) {
 		LogSrv.logger.info("DNIS findByID " + id);
-
 		Optional<DNIS> obj = dnisRepository.findById(id);
 		return obj.orElseThrow(() -> new CustomErrorException(HttpStatus.NOT_FOUND, "DNIS not found - id=" + id));
 	}
 
 	public DNIS findByDnis(String mcdu) {
 		LogSrv.logger.info("DNIS findByDnis " + mcdu);
-
 		Optional<DNIS> obj = dnisRepository.findByDnisIgnoreCase(mcdu);
-		return obj.orElseThrow(() -> new CustomErrorException(HttpStatus.NOT_FOUND, "MCDU not found - " + mcdu));
+		return obj.orElseThrow(() -> new CustomErrorException(HttpStatus.NOT_FOUND, String.format("MCDU [%s]not found ",mcdu)));
 	}
 
 	public DNIS consultarFone(String mcdu, String fullFone) {
 		LogSrv.logger.info("DNIS findByDnis " + mcdu);
 		DNIS dnis = findByDnis(mcdu);
 		if (dnis.getStatus() != StatusEn.ATIVO)
-			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "DNIS não está ativo.");
-
+			throw new CustomErrorException(HttpStatus.BAD_REQUEST, String.format("MCDU [%s] não está ativo.",mcdu ));
 		return dnis;
 	}
 

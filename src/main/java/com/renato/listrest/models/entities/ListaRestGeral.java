@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,6 +41,10 @@ public class ListaRestGeral implements Serializable {
 	@Column(updatable = false, nullable = false)
 	@CreationTimestamp
 	private Instant dh;
+	
+	@Column(nullable = false, updatable = true)
+	@UpdateTimestamp
+	private Instant dhup;
 
 	public ListaRestGeral(String fullfone) {
 		this.fullfone = fullfone;
@@ -48,6 +53,11 @@ public class ListaRestGeral implements Serializable {
 	public String getDh() {
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
 		return fmt.format(this.dh);
+	}
+	
+	public String getDhup() {
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
+		return fmt.format(this.dhup);
 	}
 	
 	public ListaRestGeral(String ddi, String ddd, String fone) {

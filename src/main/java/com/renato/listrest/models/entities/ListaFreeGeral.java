@@ -2,9 +2,12 @@ package com.renato.listrest.models.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,15 +42,29 @@ public class ListaFreeGeral implements Serializable {
 	@CreationTimestamp
 	private Instant dh;
 
+	@Column(nullable = false, updatable = true)
+	@UpdateTimestamp
+	private Instant dhup;
+
 	public ListaFreeGeral(String fullfone) {
 		this.fullfone = fullfone;
 	}
-	
+
 	public ListaFreeGeral(String ddi, String ddd, String fone) {
 		this.ddi = ddi;
 		this.ddd = ddd;
 		this.fone = fone;
-		this.fullfone = ddi+ddd+fone;
+		this.fullfone = ddi + ddd + fone;
+	}
+
+	public String getDh() {
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
+		return fmt.format(this.dh);
+	}
+
+	public String getDhup() {
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
+		return fmt.format(this.dhup);
 	}
 
 	@Override

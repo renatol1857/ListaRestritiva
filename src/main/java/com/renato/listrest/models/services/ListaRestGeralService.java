@@ -7,33 +7,44 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.renato.listrest.exceptions.CustomErrorException;
+import com.renato.listrest.models.entities.ListaFreeGeral;
 import com.renato.listrest.models.entities.ListaRestGeral;
 import com.renato.listrest.models.repositories.ListaRestGeralRepository;
 
 @Service
 public class ListaRestGeralService {
 	@Autowired
-	ListaRestGeralRepository restRepository;
+	ListaRestGeralRepository repo;
 	
 	public ListaRestGeral save(String ddi, String ddd, String fone) {
 		if (fone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "ddi/ddd/fone fora do padrao.");
-		Optional<ListaRestGeral> obj = restRepository.findByDdiAndDddAndFone(ddi, ddd, fone);
-		if (obj.isPresent())
-			return obj.get();
-		ListaRestGeral ltRest = new ListaRestGeral(ddi, ddd, fone);
-		return restRepository.save(ltRest);
+		String fullFone = ddi+ddd+fone;
+		Optional<ListaRestGeral> obj = repo.findByFullfone(fullFone);
+		// Optional<ListaRestGeral> obj = repo.findByDdiAndDddAndFone(ddi, ddd, fone);
+		ListaRestGeral ltRest;
+		if (obj.isPresent()) {
+			ltRest = obj.get();
+			if (!ltRest.getDdi().equals(ddi))
+				ltRest.setDdi(ddi);
+			if (!ltRest.getDdd().equals(ddd))
+				ltRest.setDdd(ddd);			
+			if (!ltRest.getFone().equals(fone))
+				ltRest.setFone(fone);				
+		}
+		else
+			ltRest = new ListaRestGeral(ddi, ddd, fone);
+		return repo.save(ltRest);
 	}
 
 	public ListaRestGeral save(String fullfone) {
 		if (fullfone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "fullfone fora do padrao.");
-		Optional<ListaRestGeral> obj = restRepository.findByFullfone(fullfone);
+		Optional<ListaRestGeral> obj = repo.findByFullfone(fullfone);
 		if (obj.isPresent())
 			return obj.get();
 		ListaRestGeral ltRest = new ListaRestGeral(fullfone);
-		return restRepository.save(ltRest);
-		
+		return repo.save(ltRest);
 	}
 
 }
