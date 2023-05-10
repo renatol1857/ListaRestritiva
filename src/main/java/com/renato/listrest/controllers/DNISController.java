@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.renato.listrest.models.dto.DNISDTO;
 import com.renato.listrest.models.dto.DNISPutDTO;
-import com.renato.listrest.models.dto.PhoneSalvarRespostaDTO;
 import com.renato.listrest.models.entities.DNIS;
 import com.renato.listrest.models.services.DNISService;
-import com.renato.listrest.models.services.PhoneService;
 
 import jakarta.validation.Valid;
 
@@ -22,14 +20,12 @@ import jakarta.validation.Valid;
 public class DNISController {
 	@Autowired
 	private DNISService dnisService;
-	@Autowired
-	private PhoneService phoneService;
-	
+
 	@PostMapping
 	public DNIS save(@Valid DNISDTO dnisDTO) {
 		return dnisService.save(dnisDTO.transformaToObj());
 	}
-	
+
 	@PutMapping
 	public DNIS update(@Valid DNISPutDTO dnisPutDTO) {
 		return dnisService.update(dnisPutDTO.transformaToObj());
@@ -39,19 +35,10 @@ public class DNISController {
 	public DNIS findByDnis(@PathVariable String sDnis) {
 		return dnisService.findByDnis(sDnis);
 	}
-	
-	@PostMapping(path = "/fone/{dnis}")
-	public PhoneSalvarRespostaDTO save(@PathVariable String dnis, String fullfone) {
-		return phoneService.save(dnis, fullfone);
-	}
-	
-	@GetMapping(path = "/fone/{dnis}/{fone}")
-	public DNIS consultarFone(@PathVariable String dnis, @PathVariable String fone) {
-		return dnisService.consultarFone(dnis, fone);
-	}
-	
 
-	
-	
+	@GetMapping("")
+	public Iterable<DNIS> findByAll() {
+		return dnisService.findAll();
+	}
 	
 }

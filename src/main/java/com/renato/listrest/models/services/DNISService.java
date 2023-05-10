@@ -20,8 +20,6 @@ public class DNISService {
 	@Autowired
 	private DNISRepository dnisRepository;
 
-	public DNISService() {
-	}
 
 	public DNIS save(DNIS dnis) {
 		LogSrv.logger.info("DNIS save " + dnis);
@@ -57,6 +55,10 @@ public class DNISService {
 		LogSrv.logger.info("DNIS findByDnis " + mcdu);
 		Optional<DNIS> obj = dnisRepository.findByDnisIgnoreCase(mcdu);
 		return obj.orElseThrow(() -> new CustomErrorException(HttpStatus.NOT_FOUND, String.format("MCDU [%s]not found ",mcdu)));
+	}
+
+	public Iterable<DNIS> findAll() {
+		return dnisRepository.findAll();
 	}
 
 	public DNIS consultarFone(String mcdu, String fullFone) {

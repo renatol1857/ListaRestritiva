@@ -24,32 +24,32 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Phone implements Serializable{
+public class Phone implements Serializable {
 
 	@Transient
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@ManyToOne
 	private DNIS dnis;
 	@Column(length = 30)
-	private String fullfone="";
+	private String fullfone = "";
 	@Column(length = 10)
-	private String ddi="";
+	private String ddi = "";
 	@Column(length = 10)
-	private String ddd="";
+	private String ddd = "";
 	@Column(length = 30)
-	private String fone="";
+	private String fone = "";
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
 	private Instant dh;
 	@Column(nullable = false, updatable = false)
 	@UpdateTimestamp
 	private Instant dhup;
-	
+
 	public Phone(DNIS dnis, String fullfone) {
 		this.dnis = dnis;
 		this.fullfone = fullfone;
@@ -57,14 +57,14 @@ public class Phone implements Serializable{
 		this.ddd = "";
 		this.fone = "";
 	}
-	
+
 	public Phone(DNIS dnis, String ddi, String ddd, String fone) {
-		this(dnis,ddi + ddd + fone);
+		this(dnis, ddi + ddd + fone);
 		this.ddi = ddi;
 		this.ddd = ddd;
 		this.fone = fone;
 	}
-	
+
 	public String getDh() {
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
 		return fmt.format(this.dh);
@@ -74,11 +74,12 @@ public class Phone implements Serializable{
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
 		return fmt.format(this.dhup);
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -93,12 +94,8 @@ public class Phone implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Phone [id=" + id + ", dnis=" + dnis.getDnis() + ", fullfone=" + fullfone + ", ddi=" + ddi + ", ddd=" + ddd
-				+ ", fone=" + fone + ", dh=" + dh + ", dhup=" + dhup + "]";
+		return "Phone [id=" + id + ", dnis=" + dnis.getDnis() + ", fullfone=" + fullfone + ", ddi=" + ddi + ", ddd="
+				+ ddd + ", fone=" + fone + ", dh=" + dh + ", dhup=" + dhup + "]";
 	}
 
-
-
-	
-	
 }

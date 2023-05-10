@@ -23,12 +23,21 @@ public class ListaFreeGeralService {
 		ListaFreeGeral ltRest;
 		if (obj.isPresent()) {
 			ltRest = obj.get();
-			if (!ltRest.getDdi().equals(ddi))
+			boolean flagAlterou = false;
+			if (!ltRest.getDdi().equals(ddi)) {
 				ltRest.setDdi(ddi);
-			if (!ltRest.getDdd().equals(ddd))
+				flagAlterou = true;
+			}
+			if (!ltRest.getDdd().equals(ddd)) {
 				ltRest.setDdd(ddd);			
-			if (!ltRest.getFone().equals(fone))
-				ltRest.setFone(fone);		
+				flagAlterou = true;
+			}
+			if (!ltRest.getFone().equals(fone)) {
+				ltRest.setFone(fone);
+				flagAlterou = true;
+			}
+			if (!flagAlterou)
+				return ltRest;
 		}
 		else
 			ltRest = new ListaFreeGeral(ddi, ddd, fone);

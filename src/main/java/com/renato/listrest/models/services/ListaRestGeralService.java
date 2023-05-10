@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.renato.listrest.exceptions.CustomErrorException;
-import com.renato.listrest.models.entities.ListaFreeGeral;
 import com.renato.listrest.models.entities.ListaRestGeral;
 import com.renato.listrest.models.repositories.ListaRestGeralRepository;
 
@@ -25,12 +24,21 @@ public class ListaRestGeralService {
 		ListaRestGeral ltRest;
 		if (obj.isPresent()) {
 			ltRest = obj.get();
-			if (!ltRest.getDdi().equals(ddi))
+			boolean flagAlterou = false;
+			if (!ltRest.getDdi().equals(ddi)) {
 				ltRest.setDdi(ddi);
-			if (!ltRest.getDdd().equals(ddd))
+				flagAlterou = true;
+			}
+			if (!ltRest.getDdd().equals(ddd)) {
 				ltRest.setDdd(ddd);			
-			if (!ltRest.getFone().equals(fone))
-				ltRest.setFone(fone);				
+				flagAlterou = true;
+			}
+			if (!ltRest.getFone().equals(fone)) {
+				ltRest.setFone(fone);	
+				flagAlterou = true;
+			}
+			if (!flagAlterou)
+				return ltRest;
 		}
 		else
 			ltRest = new ListaRestGeral(ddi, ddd, fone);

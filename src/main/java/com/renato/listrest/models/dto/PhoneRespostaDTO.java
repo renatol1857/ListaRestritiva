@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Setter
-public class PhoneSalvarRespostaDTO {
+public class PhoneRespostaDTO {
 	private Long id;
     private String dnis;
     private String fullfone;
@@ -20,8 +20,8 @@ public class PhoneSalvarRespostaDTO {
     private String dh;
     private String dhup;
 
-    public static PhoneSalvarRespostaDTO transfonaEmDTO(Phone phone) {
-    	return new PhoneSalvarRespostaDTO(
+    public static PhoneRespostaDTO transfonaEmDTO(Phone phone) {
+    	return new PhoneRespostaDTO(
     			phone.getId(),
     			phone.getDnis().getDnis(), 
     			phone.getFullfone(), 

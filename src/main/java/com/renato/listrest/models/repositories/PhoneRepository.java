@@ -11,4 +11,7 @@ import com.renato.listrest.models.entities.Phone;
 @Repository
 public interface PhoneRepository extends JpaRepository<Phone, Long>{
 	public Optional<Phone> findByDnisAndFullfone(DNIS dnis, String fullFone); 
+	public Optional<Phone> findByFullfone(String fullFone); 
+	
+	
 }

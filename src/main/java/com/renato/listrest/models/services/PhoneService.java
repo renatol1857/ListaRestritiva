@@ -7,50 +7,83 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.renato.listrest.exceptions.CustomErrorException;
-import com.renato.listrest.models.dto.PhoneSalvarRespostaDTO;
+import com.renato.listrest.models.dto.PhoneRespostaDTO;
 import com.renato.listrest.models.entities.DNIS;
 import com.renato.listrest.models.entities.Phone;
 import com.renato.listrest.models.enums.StatusEn;
 import com.renato.listrest.models.repositories.PhoneRepository;
+import com.renato.listrest.util.LogSrv;
 
 @Service
 public class PhoneService {
 	@Autowired
-	private PhoneRepository phoneRepository;
+	private PhoneRepository repo;
 	@Autowired
 	private DNISService dnisService;
 	@Autowired
 	private HistPhoneService histPhoneService;
 
-	public PhoneSalvarRespostaDTO save(String sDnis, String fullfone) {
+	public PhoneRespostaDTO save(String sDnis, String fullfone) {
 		if (fullfone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "fullfone fora do padrão.");
 		if (sDnis.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "dnis fora do padrão.");
 		DNIS dnis = dnisService.findByDnis(sDnis);
 		 
-		/*#FIXME ajutar o StatusEn, nao esta gravando corretamente os valores na tbDNIS (status) */
 		if (dnis.getStatus() != StatusEn.ATIVO) 
 		 	throw new CustomErrorException(HttpStatus.BAD_REQUEST, "DNIS não está ativo.");
 		Phone fone = null;
-		Optional<Phone> obj = phoneRepository.findByDnisAndFullfone(dnis, fullfone);
+		Optional<Phone> obj = repo.findByDnisAndFullfone(dnis, fullfone);
 		if (obj.isPresent())
 			fone = obj.get();
 		else {
 			fone = new Phone(dnis, fullfone);
-			fone = phoneRepository.save(fone);
+			fone = repo.save(fone);
 		}
 		histPhoneService.save(fone);
-		return PhoneSalvarRespostaDTO.transfonaEmDTO(fone);
+		return PhoneRespostaDTO.transfonaEmDTO(fone);
 	}
 
-	public void consultarFone(String mcdu, String fullFone ) {
-		
+	public PhoneRespostaDTO consultarFone(String mcdu, String fullfone ) {
+		LogSrv.logger.info("DNIS findByDnis " + mcdu);
+		DNIS dnis = dnisService.findByDnis(mcdu);
+		Optional<Phone> obj = repo.findByDnisAndFullfone(dnis, fullfone);
+		if (obj.isPresent()) 
+			return PhoneRespostaDTO.transfonaEmDTO(obj.get());
+		throw new CustomErrorException(HttpStatus.BAD_REQUEST, String.format("[%s] não encontrado",fullfone));
+
 	}
 	
-	public Phone save(String mcdu, String ddi, String ddd, String Phone) {
+	public PhoneRespostaDTO save(String mcdu, String ddi, String ddd, String fone) {
+		if (fone.isEmpty())
+			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "ddi/ddd/fone fora do padrao.");
+		DNIS dnis = dnisService.findByDnis(mcdu);
+		String fullFone = ddi+ddd+fone;
+		Optional<Phone> obj = repo.findByDnisAndFullfone(dnis, fullFone);
+		Phone ltRest;
+		if (obj.isPresent()) {
+			ltRest = obj.get();
+			boolean flagAlterou = false;
+			if (!ltRest.getDdi().equals(ddi)) {
+				ltRest.setDdi(ddi);
+				flagAlterou = true;
+			}
+			if (!ltRest.getDdd().equals(ddd)) {
+				ltRest.setDdd(ddd);			
+				flagAlterou = true;
+			}
+			if (!ltRest.getFone().equals(fone)) {
+				ltRest.setFone(fone);	
+				flagAlterou = true;
+			}
+			if (!flagAlterou)
+				return PhoneRespostaDTO.transfonaEmDTO(ltRest);
+		}
+		else
+			ltRest = new Phone(dnis, ddi, ddd, fone);
+		ltRest = repo.save(ltRest);
+		return PhoneRespostaDTO.transfonaEmDTO(ltRest);
 
-		return null;
 	}
 
 }
