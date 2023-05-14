@@ -1,6 +1,8 @@
 package com.renato.listrest.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,26 +21,36 @@ import jakarta.validation.Valid;
 @RequestMapping(path = "/dnis")
 public class DNISController {
 	@Autowired
-	private DNISService dnisService;
+	private DNISService service;
 
 	@PostMapping
 	public DNIS save(@Valid DNISDTO dnisDTO) {
-		return dnisService.save(dnisDTO.transformaToObj());
+		return service.save(dnisDTO.transformaToObj());
 	}
 
 	@PutMapping
 	public DNIS update(@Valid DNISPutDTO dnisPutDTO) {
-		return dnisService.update(dnisPutDTO.transformaToObj());
+		return service.update(dnisPutDTO.transformaToObj());
 	}
 
-	@GetMapping("/{sDnis}")
-	public DNIS findByDnis(@PathVariable String sDnis) {
-		return dnisService.findByDnis(sDnis);
+	@DeleteMapping("/{mcdu}")
+	public ResponseEntity<DNIS> apagar(@PathVariable String mcdu) {
+		return service.deleteCascade(mcdu);
 	}
 
-	@GetMapping("")
-	public Iterable<DNIS> findByAll() {
-		return dnisService.findAll();
+	@GetMapping("/{mcdu}")
+	public DNIS findByDnis(@PathVariable String mcdu) {
+		return service.findByDnis(mcdu);
 	}
-	
+
+	@GetMapping
+	public Iterable<DNIS> findAll() {
+		return service.findAll();
+	}
+
+	@GetMapping("pagina/{numPag}")
+	public Iterable<DNIS> findAll(@PathVariable int numPag) {
+		return service.findAll(numPag);
+	}
+
 }

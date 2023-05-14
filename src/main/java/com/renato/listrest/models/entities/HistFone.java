@@ -9,6 +9,7 @@ import java.util.Objects;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,12 +32,12 @@ public class HistFone implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne
+	@ManyToOne (cascade = CascadeType.ALL)
 	private Phone phone;
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
 	private Instant dh;
-	@Column(nullable = false, updatable = false)
+	@Column(nullable = false, updatable = true)
 	@UpdateTimestamp
 	private Instant dhup;
 

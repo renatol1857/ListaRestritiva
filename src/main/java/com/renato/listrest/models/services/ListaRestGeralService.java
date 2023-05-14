@@ -1,5 +1,7 @@
 package com.renato.listrest.models.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.renato.listrest.exceptions.CustomErrorException;
+import com.renato.listrest.models.dto.ListaRestGeralDTO;
 import com.renato.listrest.models.entities.ListaRestGeral;
 import com.renato.listrest.models.repositories.ListaRestGeralRepository;
 
@@ -14,11 +17,11 @@ import com.renato.listrest.models.repositories.ListaRestGeralRepository;
 public class ListaRestGeralService {
 	@Autowired
 	ListaRestGeralRepository repo;
-	
+
 	public ListaRestGeral save(String ddi, String ddd, String fone) {
 		if (fone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "ddi/ddd/fone fora do padrao.");
-		String fullFone = ddi+ddd+fone;
+		String fullFone = ddi + ddd + fone;
 		Optional<ListaRestGeral> obj = repo.findByFullfone(fullFone);
 		// Optional<ListaRestGeral> obj = repo.findByDdiAndDddAndFone(ddi, ddd, fone);
 		ListaRestGeral ltRest;
@@ -30,17 +33,16 @@ public class ListaRestGeralService {
 				flagAlterou = true;
 			}
 			if (!ltRest.getDdd().equals(ddd)) {
-				ltRest.setDdd(ddd);			
+				ltRest.setDdd(ddd);
 				flagAlterou = true;
 			}
 			if (!ltRest.getFone().equals(fone)) {
-				ltRest.setFone(fone);	
+				ltRest.setFone(fone);
 				flagAlterou = true;
 			}
 			if (!flagAlterou)
 				return ltRest;
-		}
-		else
+		} else
 			ltRest = new ListaRestGeral(ddi, ddd, fone);
 		return repo.save(ltRest);
 	}
@@ -53,6 +55,25 @@ public class ListaRestGeralService {
 			return obj.get();
 		ListaRestGeral ltRest = new ListaRestGeral(fullfone);
 		return repo.save(ltRest);
+	}
+
+	public List<ListaRestGeralDTO> findAll() {
+		Iterable<ListaRestGeral> lst = repo.findAll();
+		List<ListaRestGeralDTO> lstDTO = new ArrayList<>();
+		for (ListaRestGeral listGeral : lst) 
+			lstDTO.add(ListaRestGeralDTO.transfonaEmDTO(listGeral));
+		//	Consumer<ListaRestGeralDTO> fnc = obj -> ListaRestGeralDTO.transfonaEmDTO(obj);
+		//List<ListaRestGeralDTO> lstDTO = lst.forEach();
+		return lstDTO;
+	}
+
+	public ListaRestGeral consultarFullFone(String fullfone) {
+		if (fullfone.isEmpty())
+			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "fullfone fora do padrao.");
+		Optional<ListaRestGeral> obj = repo.findByFullfone(fullfone);
+		if (obj.isPresent())
+			return obj.get();
+		throw new CustomErrorException(HttpStatus.NOT_FOUND, String.format("Fone [%s] não encontrado", fullfone));
 	}
 
 }

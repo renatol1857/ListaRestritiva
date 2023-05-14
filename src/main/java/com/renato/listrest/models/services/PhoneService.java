@@ -83,7 +83,14 @@ public class PhoneService {
 			ltRest = new Phone(dnis, ddi, ddd, fone);
 		ltRest = repo.save(ltRest);
 		return PhoneRespostaDTO.transfonaEmDTO(ltRest);
-
+	}
+	
+	public void apagarByDNIS(DNIS dnis) {
+		//Optional<Phone> obj = repo.findByDnis(dnis);
+		// if (obj.isPresent()) {
+		//	histPhoneService.apagar(obj.get());
+		//	repo.deleteByDnis(dnis);
+		// }
 	}
 
 }

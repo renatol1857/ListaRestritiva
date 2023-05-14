@@ -18,7 +18,7 @@ public class ListaFreeGeralService {
 	public ListaFreeGeral save(String ddi, String ddd, String fone) {
 		if (fone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "ddi/ddd/fone fora do padrao.");
-		String fullFone = ddi+ddd+fone;
+		String fullFone = ddi + ddd + fone;
 		Optional<ListaFreeGeral> obj = repo.findByFullfone(fullFone);
 		ListaFreeGeral ltRest;
 		if (obj.isPresent()) {
@@ -29,7 +29,7 @@ public class ListaFreeGeralService {
 				flagAlterou = true;
 			}
 			if (!ltRest.getDdd().equals(ddd)) {
-				ltRest.setDdd(ddd);			
+				ltRest.setDdd(ddd);
 				flagAlterou = true;
 			}
 			if (!ltRest.getFone().equals(fone)) {
@@ -38,8 +38,7 @@ public class ListaFreeGeralService {
 			}
 			if (!flagAlterou)
 				return ltRest;
-		}
-		else
+		} else
 			ltRest = new ListaFreeGeral(ddi, ddd, fone);
 		return repo.save(ltRest);
 	}
@@ -52,6 +51,19 @@ public class ListaFreeGeralService {
 			return obj.get();
 		ListaFreeGeral ltRest = new ListaFreeGeral(fullfone);
 		return repo.save(ltRest);
+	}
+
+	public Iterable<ListaFreeGeral> findAll() {
+		return repo.findAll();
+	}
+
+	public ListaFreeGeral consultarFullFone(String fullfone) {
+		if (fullfone.isEmpty())
+			throw new CustomErrorException(HttpStatus.BAD_REQUEST, String.format("Fone [%s] fora do padrão", fullfone));
+		Optional<ListaFreeGeral> obj = repo.findByFullfone(fullfone);
+		if (obj.isPresent())
+			return obj.get();
+		throw new CustomErrorException(HttpStatus.NOT_FOUND, String.format("Fone [%s] não encontrado", fullfone));
 	}
 
 }

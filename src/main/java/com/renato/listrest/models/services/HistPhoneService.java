@@ -10,9 +10,13 @@ import com.renato.listrest.models.repositories.HistPhoneRepository;
 @Service
 public class HistPhoneService {
 	@Autowired
-	private HistPhoneRepository histPhoneRepository;
+	private HistPhoneRepository repo;
 	
 	public HistFone save(Phone phone) {
-		return histPhoneRepository.save(new HistFone(phone));
+		return repo.save(new HistFone(phone));
+	}
+	
+	public void apagar(Phone fone) {
+		repo.deleteByPhone(fone);
 	}
 }
