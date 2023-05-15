@@ -10,7 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.renato.listrest.exceptions.CustomErrorException;
+import com.renato.listrest.models.dto.PhoneRespostaDTO;
 import com.renato.listrest.models.entities.DNIS;
+import com.renato.listrest.models.entities.Phone;
 import com.renato.listrest.models.enums.StatusEn;
 import com.renato.listrest.models.repositories.DNISRepository;
 import com.renato.listrest.util.LogSrv;
@@ -22,6 +24,8 @@ public class DNISService {
 
 	@Autowired
 	private DNISRepository repo;
+	
+
 	
 
 	public DNIS save(DNIS dnis) {
@@ -63,7 +67,7 @@ public class DNISService {
 		return ResponseEntity.status(HttpStatus.OK).body(obj.get());
 	}
 
-	public DNIS findByDnis(String mcdu) {
+	public DNIS findByMcdu(String mcdu) {
 		LogSrv.logger.info("DNIS findByDnis " + mcdu);
 		Optional<DNIS> obj = repo.findByDnisIgnoreCase(mcdu);
 		return obj.orElseThrow(
@@ -81,10 +85,34 @@ public class DNISService {
 
 	public DNIS consultarFone(String mcdu, String fullFone) {
 		LogSrv.logger.info("DNIS findByDnis " + mcdu);
-		DNIS dnis = findByDnis(mcdu);
+		DNIS dnis = findByMcdu(mcdu);
 		if (dnis.getStatus() != StatusEn.ATIVO)
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, String.format("MCDU [%s] não está ativo.", mcdu));
 		return dnis;
 	}
 
+	/*
+	public PhoneRespostaDTO save(String mcdu, String fullfone) {
+		if (fullfone.isEmpty())
+			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "fullfone fora do padrão.");
+		if (mcdu.isEmpty())
+			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "dnis fora do padrão.");
+		DNIS dnis = findByMcdu(mcdu);
+		if (dnis.getStatus() != StatusEn.ATIVO) 
+		 	throw new CustomErrorException(HttpStatus.BAD_REQUEST, "DNIS não está ativo.");
+		
+		
+		Phone fone = null;
+		Optional<Phone> obj = repo.findByDnisAndFullfone(dnis, fullfone);
+		if (obj.isPresent())
+			fone = obj.get();
+		else {
+			fone = new Phone(dnis, fullfone);
+			fone = repo.save(fone);
+		}
+		histPhoneService.save(fone);
+		return PhoneRespostaDTO.transfonaEmDTO(fone);
+	}
+	*/
+	
 }

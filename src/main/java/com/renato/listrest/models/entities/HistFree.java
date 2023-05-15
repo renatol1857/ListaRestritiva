@@ -5,16 +5,14 @@ import java.time.Instant;
 import java.util.Objects;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import com.renato.listrest.models.enums.PadroesEn;
-import com.renato.listrest.models.enums.StatusEn;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,40 +22,43 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class PadraoGeral implements Serializable {
+public class HistFree implements Serializable {
 	@Transient
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	private PadroesEn padrao;
-	
-	private StatusEn status;
 
-	@Column(length = 200)
-	private String extra="";	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private ListaFree listFree;
 
-	@Column(length = 200)
-	private String descricao="";	
-	
-	@Column(updatable = false, nullable = false)
+	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
 	private Instant dh;
+
+	@Column(length = 50)
+	private String ip = "127.0.0.1";
+
+	@Column(length = 100)
+	private String obs = "";
 	
-	@Column(nullable = false, updatable = true)
-	@UpdateTimestamp
-	private Instant dhup;
-	
-	public PadraoGeral(PadroesEn padrao, String descricao) {
-		this.padrao = padrao;
-		this.descricao = descricao;
-		status = StatusEn.APROVACAO;
+	public HistFree(ListaFree lstFree) {
+		this.listFree = lstFree;
 	}
 
-	public PadraoGeral(PadroesEn padrao, String extra, String descricao) {
-		this(padrao,descricao);
-		this.extra = extra;
+	public HistFree(ListaFree lstFree, String ip) {
+		this(lstFree);
+		if (ip.isEmpty())
+			ip = "127.0.0.1";
+		if (ip.equals("0:0:0:0:0:0:0:1"))
+			ip = "127.0.0.1";
+		this.ip = ip;
+	}
+
+	public HistFree(ListaFree lstFree, String ip, String obs) {
+		this(lstFree, ip);
+		this.obs = obs;
 	}
 
 	@Override
@@ -73,8 +74,13 @@ public class PadraoGeral implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PadraoGeral other = (PadraoGeral) obj;
+		HistFree other = (HistFree) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public String toString() {
+		return "HistFreeGeral [id=" + id + ", dh=" + dh + ", ip=" + ip + ", obs=" + obs + "]";
 	}
 
 }

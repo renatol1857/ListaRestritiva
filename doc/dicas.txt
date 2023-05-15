@@ -1,0 +1,206 @@
+Endpoints:
+
+===========================================
+	/free  - Estatica
+		/{fullPhone} incluir  - POST OK
+
+		/ incluir  -  POST Ok
+			dados no body
+				ddi
+				ddd
+				fone
+
+		/{fullPhone} consultar  - GET OK
+		
+		/{fullPhone} consultar e incremento - PUT  OK
+		
+		/historico/{fullPhone}/{num_pag} consultar com historico - GET
+		
+		/like/{Phone} consultar sem DDI e DDD - GET
+		
+		/apagar/{fullPhone}  - DELETE
+
+		/apagar  - DELETE
+			senha_especial_4 no body
+			
+		/listar/{num_pag} - GET
+			listar por paginas  
+
+		/{fullPhone}/{status}  - PATCH
+
+		/carga  - POST
+			dados no body
+			
+		/exportar  - POST
+			dados no body
+
+===========================================
+	/restritiva  - Estatica
+		/{fullPhone} incluir -  (POST)
+
+		/ incluir  -  (POST)
+			dados no body
+				ddi
+				ddd
+				fone
+
+		/{fullPhone} consultar com incremento -  (PUT)
+
+		/{fullPhone} consultar  -  (GET)
+
+		/like/{Phone} consultar sem DDI e DDD -  (GET)
+				
+		/apagar/{fullPhone} -  (DELETE)
+
+		/apagar  -  (DELETE)
+			senha_especial_4 no body
+	
+		/listar/{num_pag} - (GET)
+			listar por paginas  
+
+		/{fullPhone}/{status} (PATCH)
+			Alterar Staus
+			
+		/carga  - POST
+			dados no body
+
+		/exportar  - POST
+			dados no body
+
+===========================================
+	/padrao
+		/ Incluir - POST
+			dados no body
+
+		/{fullPhone} consultar - GET
+		
+		/apagar -  (DELETE)
+			dados no body
+
+		/{status} (PATCH)
+			Alterar Staus
+
+===========================================
+	relatorio
+
+===========================================
+	mcdu
+		incluir (POST)
+			dados no body
+				
+		/{mcdu} consultar (GET)
+					
+		/ atualizar (PUT)
+			dados no body
+
+		/soft/{mcdu} (PATCH)
+			ativacao de delecao Soft 
+				senha_especial_1 no body
+
+		/{status} (PATCH)
+			Alterar Staus
+				
+===========================================
+	mcdu/listar/{num_pag} - (GET)
+		listar por paginas  
+
+===========================================
+	mcdu/apagar/{mcdu} (DELETE)
+		senha_especial_X no body
+
+		depente da senha:
+			SOFT: Ajuste de status
+				<tipo>: SOFT (OPCIONAL) 
+				senha_especial_1 - Apagar Soft 
+				
+			HARD: Cascade (Permissao por IP)
+				tipo: CASCADE {Obrigatorio} 
+				senha_especial_2 
+			
+	mcdu/apagar (DELETE) (Permissao por IP)
+		apagar todos as tabelas e zerar sequencias
+		body:
+			tipo: CASCADE {Obrigatorio}
+			senha_especial_3 no body
+			
+===========================================			
+	mcdu/fone
+		/{fullPhone} consultar com incremento -  (PUT)
+
+		/listar/{num_pag} - (GET)
+			listar por paginas  
+			
+===========================================	
+	mcdu/restritiva  - Estatica
+		/{fullPhone} incluir -  (POST)
+
+		/ incluir  -  (POST)
+			dados no body
+				ddi
+				ddd
+				fone
+
+		/{fullPhone} consultar com incremento -  (PUT)
+
+		/{fullPhone} consultar  -  (GET)
+
+		/like/{Phone} consultar sem DDI e DDD -  (GET)
+				
+		/apagar/{fullPhone} -  (DELETE)
+
+		/apagar  -  (DELETE)
+			senha_especial_4 no body
+	
+		/listar/{num_pag} - (GET)
+			listar por paginas  
+
+		/{fullPhone}/{status} (PATCH)
+			Alterar Staus
+
+		/carga  - POST
+			dados no body
+
+		/exportar  - POST
+			dados no body
+	
+===========================================	
+	mcdu/free  - Estatica
+		/{fullPhone} incluir -  (POST)
+
+		/ incluir  -  (POST)
+			dados no body
+				ddi
+				ddd
+				fone
+
+		/{fullPhone} consultar com incremento -  (PUT)
+
+		/{fullPhone} consultar  -  (GET)
+
+		/like/{Phone} consultar sem DDI e DDD -  (GET)
+				
+		/apagar/{fullPhone} -  (DELETE)
+	
+		/apagar  -  (DELETE)
+
+		/listar/{num_pag} - (GET)
+			listar por paginas  
+
+		/{fullPhone}/{status} (PATCH)
+			Alterar Staus
+
+		/carga  - POST
+			dados no body
+			
+		/exportar  - POST
+			dados no body
+	
+===========================================
+	mcdu/relatorio
+	
+===========================================
+	mcdu/padrao
+	
+===========================================
+	mcdu/cfg
+	

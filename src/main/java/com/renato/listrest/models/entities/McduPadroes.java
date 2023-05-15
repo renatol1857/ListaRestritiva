@@ -1,5 +1,5 @@
 package com.renato.listrest.models.entities;
 
-public class Padroes {
+public class McduPadroes {
 
 }

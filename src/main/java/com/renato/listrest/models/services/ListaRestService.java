@@ -1,5 +1,7 @@
 package com.renato.listrest.models.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,20 +9,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.renato.listrest.exceptions.CustomErrorException;
-import com.renato.listrest.models.entities.ListaFreeGeral;
-import com.renato.listrest.models.repositories.ListaFreeGeralRepository;
+import com.renato.listrest.models.dto.ListaRestDTO;
+import com.renato.listrest.models.entities.ListaRest;
+import com.renato.listrest.models.repositories.ListaRestRepository;
 
 @Service
-public class ListaFreeGeralService {
+public class ListaRestService {
 	@Autowired
-	ListaFreeGeralRepository repo;
+	ListaRestRepository repo;
 
-	public ListaFreeGeral save(String ddi, String ddd, String fone) {
+	public ListaRest save(String ddi, String ddd, String fone) {
 		if (fone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "ddi/ddd/fone fora do padrao.");
 		String fullFone = ddi + ddd + fone;
-		Optional<ListaFreeGeral> obj = repo.findByFullfone(fullFone);
-		ListaFreeGeral ltRest;
+		Optional<ListaRest> obj = repo.findByFullfone(fullFone);
+		// Optional<ListaRestGeral> obj = repo.findByDdiAndDddAndFone(ddi, ddd, fone);
+		ListaRest ltRest;
 		if (obj.isPresent()) {
 			ltRest = obj.get();
 			boolean flagAlterou = false;
@@ -39,28 +43,34 @@ public class ListaFreeGeralService {
 			if (!flagAlterou)
 				return ltRest;
 		} else
-			ltRest = new ListaFreeGeral(ddi, ddd, fone);
+			ltRest = new ListaRest(ddi, ddd, fone);
 		return repo.save(ltRest);
 	}
 
-	public ListaFreeGeral save(String fullfone) {
+	public ListaRest save(String fullfone) {
 		if (fullfone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "fullfone fora do padrao.");
-		Optional<ListaFreeGeral> obj = repo.findByFullfone(fullfone);
+		Optional<ListaRest> obj = repo.findByFullfone(fullfone);
 		if (obj.isPresent())
 			return obj.get();
-		ListaFreeGeral ltRest = new ListaFreeGeral(fullfone);
+		ListaRest ltRest = new ListaRest(fullfone);
 		return repo.save(ltRest);
 	}
 
-	public Iterable<ListaFreeGeral> findAll() {
-		return repo.findAll();
+	public List<ListaRestDTO> findAll() {
+		Iterable<ListaRest> lst = repo.findAll();
+		List<ListaRestDTO> lstDTO = new ArrayList<>();
+		for (ListaRest listGeral : lst) 
+			lstDTO.add(ListaRestDTO.transfonaEmDTO(listGeral));
+		//	Consumer<ListaRestGeralDTO> fnc = obj -> ListaRestGeralDTO.transfonaEmDTO(obj);
+		//List<ListaRestGeralDTO> lstDTO = lst.forEach();
+		return lstDTO;
 	}
 
-	public ListaFreeGeral consultarFullFone(String fullfone) {
+	public ListaRest consultarFullFone(String fullfone) {
 		if (fullfone.isEmpty())
-			throw new CustomErrorException(HttpStatus.BAD_REQUEST, String.format("Fone [%s] fora do padrão", fullfone));
-		Optional<ListaFreeGeral> obj = repo.findByFullfone(fullfone);
+			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "fullfone fora do padrao.");
+		Optional<ListaRest> obj = repo.findByFullfone(fullfone);
 		if (obj.isPresent())
 			return obj.get();
 		throw new CustomErrorException(HttpStatus.NOT_FOUND, String.format("Fone [%s] não encontrado", fullfone));

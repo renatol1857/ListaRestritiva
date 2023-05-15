@@ -28,7 +28,7 @@ public class PhoneService {
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "fullfone fora do padrão.");
 		if (sDnis.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "dnis fora do padrão.");
-		DNIS dnis = dnisService.findByDnis(sDnis);
+		DNIS dnis = dnisService.findByMcdu(sDnis);
 		 
 		if (dnis.getStatus() != StatusEn.ATIVO) 
 		 	throw new CustomErrorException(HttpStatus.BAD_REQUEST, "DNIS não está ativo.");
@@ -46,7 +46,7 @@ public class PhoneService {
 
 	public PhoneRespostaDTO consultarFone(String mcdu, String fullfone ) {
 		LogSrv.logger.info("DNIS findByDnis " + mcdu);
-		DNIS dnis = dnisService.findByDnis(mcdu);
+		DNIS dnis = dnisService.findByMcdu(mcdu);
 		Optional<Phone> obj = repo.findByDnisAndFullfone(dnis, fullfone);
 		if (obj.isPresent()) 
 			return PhoneRespostaDTO.transfonaEmDTO(obj.get());
@@ -57,7 +57,7 @@ public class PhoneService {
 	public PhoneRespostaDTO save(String mcdu, String ddi, String ddd, String fone) {
 		if (fone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "ddi/ddd/fone fora do padrao.");
-		DNIS dnis = dnisService.findByDnis(mcdu);
+		DNIS dnis = dnisService.findByMcdu(mcdu);
 		String fullFone = ddi+ddd+fone;
 		Optional<Phone> obj = repo.findByDnisAndFullfone(dnis, fullFone);
 		Phone ltRest;
@@ -86,11 +86,11 @@ public class PhoneService {
 	}
 	
 	public void apagarByDNIS(DNIS dnis) {
-		//Optional<Phone> obj = repo.findByDnis(dnis);
-		// if (obj.isPresent()) {
-		//	histPhoneService.apagar(obj.get());
-		//	repo.deleteByDnis(dnis);
-		// }
+		Optional<Phone> obj = repo.findByDnis(dnis);
+		if (obj.isPresent()) {
+			histPhoneService.apagar(obj.get());
+			repo.deleteByDnis(dnis);
+		 }
 	}
 
 }

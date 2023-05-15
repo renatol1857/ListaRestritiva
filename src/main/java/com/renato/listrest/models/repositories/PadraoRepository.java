@@ -3,9 +3,9 @@ package com.renato.listrest.models.repositories;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.renato.listrest.models.entities.PadraoGeral;
+import com.renato.listrest.models.entities.Padrao;
 
 @Repository
-public interface PadraoGeralRepository extends CrudRepository<PadraoGeral, Long>{
+public interface PadraoRepository extends CrudRepository<Padrao, Long>{
 
 }

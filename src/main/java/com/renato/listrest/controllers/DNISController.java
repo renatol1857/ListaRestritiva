@@ -27,6 +27,13 @@ public class DNISController {
 	public DNIS save(@Valid DNISDTO dnisDTO) {
 		return service.save(dnisDTO.transformaToObj());
 	}
+	
+	/*
+	@PostMapping(path = "/{mcdu}/{fullfone}")
+	public PhoneRespostaDTO save(@PathVariable String mcdu, @PathVariable String fullfone) {
+		return service.save(mcdu, fullfone);
+	}
+	*/
 
 	@PutMapping
 	public DNIS update(@Valid DNISPutDTO dnisPutDTO) {
@@ -40,7 +47,7 @@ public class DNISController {
 
 	@GetMapping("/{mcdu}")
 	public DNIS findByDnis(@PathVariable String mcdu) {
-		return service.findByDnis(mcdu);
+		return service.findByMcdu(mcdu);
 	}
 
 	@GetMapping

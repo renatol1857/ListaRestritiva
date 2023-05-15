@@ -2,12 +2,13 @@ package com.renato.listrest.models.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import com.renato.listrest.models.enums.PadroesEn;
+import com.renato.listrest.models.enums.StatusEn;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,21 +24,23 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ListaRestGeral implements Serializable {
+public class Padrao implements Serializable {
 	@Transient
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(length = 30)
-	private String fullfone = "";
-	@Column(length = 10)
-	private String ddi = "";
-	@Column(length = 10)
-	private String ddd = "";
-	@Column(length = 30)
-	private String fone = "";
+	
+	private PadroesEn padrao;
+	
+	private StatusEn status;
 
+	@Column(length = 200)
+	private String extra="";	
+
+	@Column(length = 200)
+	private String descricao="";	
+	
 	@Column(updatable = false, nullable = false)
 	@CreationTimestamp
 	private Instant dh;
@@ -45,26 +48,16 @@ public class ListaRestGeral implements Serializable {
 	@Column(nullable = false, updatable = true)
 	@UpdateTimestamp
 	private Instant dhup;
+	
+	public Padrao(PadroesEn padrao, String descricao) {
+		this.padrao = padrao;
+		this.descricao = descricao;
+		status = StatusEn.APROVACAO;
+	}
 
-	public ListaRestGeral(String fullfone) {
-		this.fullfone = fullfone;
-	}
-	
-	public String getDh() {
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
-		return fmt.format(this.dh);
-	}
-	
-	public String getDhup() {
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
-		return fmt.format(this.dhup);
-	}
-	
-	public ListaRestGeral(String ddi, String ddd, String fone) {
-		this.ddi = ddi;
-		this.ddd = ddd;
-		this.fone = fone;
-		this.fullfone = ddi+ddd+fone;
+	public Padrao(PadroesEn padrao, String extra, String descricao) {
+		this(padrao,descricao);
+		this.extra = extra;
 	}
 
 	@Override
@@ -80,17 +73,8 @@ public class ListaRestGeral implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ListaRestGeral other = (ListaRestGeral) obj;
+		Padrao other = (Padrao) obj;
 		return Objects.equals(id, other.id);
 	}
-
-	@Override
-	public String toString() {
-		return "ListaRestGeral [id=" + id + ", fullfone=" + fullfone + ", ddi=" + ddi + ", ddd=" + ddd + ", fone="
-				+ fone + ", dh=" + this.getDh() + "]";
-	}
-
-
-
 
 }

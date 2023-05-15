@@ -16,10 +16,6 @@ public class PhoneController {
 	@Autowired
 	private PhoneService service;
 
-	@PostMapping(path = "/{mcdu}/{fullfone}")
-	public PhoneRespostaDTO save(@PathVariable String mcdu, @PathVariable String fullfone) {
-		return service.save(mcdu, fullfone);
-	}
 	
 	@PostMapping(path = "/{mcdu}")
 	public PhoneRespostaDTO consultarFone(@PathVariable String mcdu, String ddi, String ddd, String fone) {

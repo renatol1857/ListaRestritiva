@@ -5,6 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/padrao_geral")
-public class PadraoGeralController {
+public class PadraoController {
 
 }
