@@ -7,16 +7,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
-import com.renato.listrest.models.enums.PadroesEn;
-import com.renato.listrest.models.enums.StatusEn;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,45 +24,43 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Padrao implements Serializable {
+public class PadraoHist implements Serializable {
 	@Transient
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private PadroesEn padrao;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Padrao padrao;
 
-	private StatusEn status;
-
-	@Column(length = 200)
-	private String extra = "";
-
-	@Column(length = 200)
-	private String descricao = "";
-
-	@Column(updatable = false, nullable = false)
+	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
 	private Instant dh;
 
-	@Column(nullable = false, updatable = true)
-	@UpdateTimestamp
-	private Instant dhup;
+	@Column(length = 50)
+	private String ip = "127.0.0.1";
 
-	public Padrao(PadroesEn padrao) {
+	@Column(length = 100)
+	private String obs = "";
+
+	public PadraoHist(Padrao padrao) {
 		this.padrao = padrao;
-		status = StatusEn.APROVACAO;
 	}
 
-	public Padrao(PadroesEn padrao, String descricao) {
+	public PadraoHist(Padrao padrao, String ip) {
 		this(padrao);
-		this.descricao = descricao;
-		status = StatusEn.APROVACAO;
+		if (ip.isEmpty())
+			ip = "127.0.0.1";
+		if (ip.equals("0:0:0:0:0:0:0:1"))
+			ip = "127.0.0.1";
+		this.ip = ip;
 	}
 
-	public Padrao(PadroesEn padrao, String descricao, String extra) {
-		this(padrao, descricao);
-		this.extra = extra;
+	public PadraoHist(Padrao padrao, String ip, String obs) {
+		this(padrao, ip);
+		this.obs = obs;
 	}
 
 	public String getDh() {
@@ -72,9 +68,9 @@ public class Padrao implements Serializable {
 		return fmt.format(this.dh);
 	}
 
-	public String getDhup() {
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
-		return fmt.format(this.dhup);
+	@Override
+	public String toString() {
+		return "PadraoHist [id=" + id + ", dh=" + getDh() + ", ip=" + ip + ", obs=" + obs + "]";
 	}
 
 	@Override
@@ -90,14 +86,8 @@ public class Padrao implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Padrao other = (Padrao) obj;
+		PadraoHist other = (PadraoHist) obj;
 		return Objects.equals(id, other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "Padrao [id=" + id + ", padrao=" + padrao + ", status=" + status + ", extra=" + extra + ", descricao="
-				+ descricao + ", dh=" + getDh() + ", dhup=" + getDhup() + "]";
 	}
 
 }
