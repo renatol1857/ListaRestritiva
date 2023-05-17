@@ -11,18 +11,19 @@ import org.springframework.stereotype.Service;
 
 import com.renato.listrest.exceptions.CustomErrorException;
 import com.renato.listrest.models.dto.HistFreeDTO;
-import com.renato.listrest.models.dto.ListaFreeHitoricoTDO;
+import com.renato.listrest.models.dto.FreeHistoricoTDO;
 import com.renato.listrest.models.entities.HistFree;
-import com.renato.listrest.models.entities.ListaFree;
+import com.renato.listrest.models.entities.Free;
 import com.renato.listrest.models.repositories.HistFreeRepository;
-import com.renato.listrest.models.repositories.ListaFreeRepository;
+import com.renato.listrest.models.repositories.FreeRepository;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.transaction.Transactional;
 
 @Service
-public class ListaFreeService {
+public class FreeService {
 	@Autowired
-	ListaFreeRepository repo;
+	FreeRepository repo;
 	
 	@Autowired
 	HistFreeRepository repoHist;
@@ -30,13 +31,13 @@ public class ListaFreeService {
 	@Autowired(required = true)
 	private HttpServletRequest  request;
 
-	public ResponseEntity<ListaFree> save(String ddi, String ddd, String fone) {
+	public ResponseEntity<Free> save(String ddi, String ddd, String fone) {
 		if (fone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "ddi/ddd/fone fora do padrao.");
 		String remoteIP = request.getRemoteAddr();
 		String fullFone = ddi + ddd + fone;
-		Optional<ListaFree> obj = repo.findByFullfone(fullFone);
-		ListaFree lstFree;
+		Optional<Free> obj = repo.findByFullfone(fullFone);
+		Free lstFree;
 		String strDesc = "Created with DDI/DDD/Phone";
 		if (obj.isPresent()) {
 			lstFree = obj.get();
@@ -57,45 +58,45 @@ public class ListaFreeService {
 				return ResponseEntity.status(HttpStatus.OK).body(lstFree);
 			strDesc = "Updated with DDI/DDD/Phone";
 		} else 
-			lstFree = new ListaFree(ddi, ddd, fone);
+			lstFree = new Free(ddi, ddd, fone);
 		lstFree = repo.save(lstFree);
 		repoHist.save(new HistFree(lstFree, remoteIP, strDesc));
 		return ResponseEntity.status(HttpStatus.CREATED).body(lstFree);
 	}
 
-	public ResponseEntity<ListaFree> save(String fullfone) {
+	public ResponseEntity<Free> save(String fullfone) {
 		if (fullfone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "fullfone fora do padrao.");
-		Optional<ListaFree> obj = repo.findByFullfone(fullfone);
+		Optional<Free> obj = repo.findByFullfone(fullfone);
 		if (obj.isPresent())
 			return ResponseEntity.status(HttpStatus.OK).body(obj.get());
 		String remoteIP = request.getRemoteAddr();
-		ListaFree lstFree = new ListaFree(fullfone);
+		Free lstFree = new Free(fullfone);
 		lstFree = repo.save(lstFree);
 		repoHist.save(new HistFree(lstFree, remoteIP, "Created with fullPhone"));
 		return ResponseEntity.status(HttpStatus.CREATED).body(lstFree);
 	}
 	
 	
-	public ListaFree consultar(String fullfone) {
+	public Free consultar(String fullfone) {
 		if (fullfone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, String.format("Fone [%s] fora do padrão", fullfone));
-		Optional<ListaFree> obj = repo.findByFullfone(fullfone);
+		Optional<Free> obj = repo.findByFullfone(fullfone);
 		if (obj.isPresent())
 			return obj.get();
 		throw new CustomErrorException(HttpStatus.NOT_FOUND, String.format("Fone [%s] não encontrado", fullfone));
 	}
 	
-	public ListaFree consultarInc(String fullfone) {
-		ListaFree free = consultar(fullfone);
+	public Free consultarInc(String fullfone) {
+		Free free = consultar(fullfone);
 		String remoteIP = request.getRemoteAddr();
 		repoHist.save(new HistFree(free, remoteIP, "Consult with fullPhone"));
 		return free;
 	}
 	
-	public ListaFreeHitoricoTDO consultarHistorico(String fullfone, String numPag) {
-		ListaFree free = consultar(fullfone);
-		ListaFreeHitoricoTDO freeDTO = ListaFreeHitoricoTDO.transfonaEmDTO(free);
+	public FreeHistoricoTDO consultarHistorico(String fullfone, String numPag) {
+		Free free = consultar(fullfone);
+		FreeHistoricoTDO freeDTO = FreeHistoricoTDO.transfonaEmDTO(free);
 		Iterable<HistFree> lstHist = repoHist.findAllByFree(free);
 		
 		for (HistFree histFree : lstHist) {
@@ -104,13 +105,14 @@ public class ListaFreeService {
 		return freeDTO;
 	}
 
-	public Iterable<ListaFree> findAll(int numPag) {
+	public Iterable<Free> findAll(int numPag) {
 		Pageable page = PageRequest.of(numPag, 20);
 		return repo.findAll(page);
 	}
 
+	@Transactional
 	public void apagar(String fullPhone) {
-		ListaFree free = consultar(fullPhone);
+		Free free = consultar(fullPhone);
 		// Iterable<HistFree> lstAx = repoHist.findAllByFree(free);
 		repoHist.deleteAllByFree(free);
 		repo.delete(free);

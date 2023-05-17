@@ -33,7 +33,7 @@ public class HistFree implements Serializable {
 	private Long id;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	private ListaFree free;
+	private Free free;
 
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
@@ -45,11 +45,11 @@ public class HistFree implements Serializable {
 	@Column(length = 100)
 	private String obs = "";
 	
-	public HistFree(ListaFree free) {
+	public HistFree(Free free) {
 		this.free = free;
 	}
 
-	public HistFree(ListaFree lstFree, String ip) {
+	public HistFree(Free lstFree, String ip) {
 		this(lstFree);
 		if (ip.isEmpty())
 			ip = "127.0.0.1";
@@ -58,7 +58,7 @@ public class HistFree implements Serializable {
 		this.ip = ip;
 	}
 
-	public HistFree(ListaFree lstFree, String ip, String obs) {
+	public HistFree(Free lstFree, String ip, String obs) {
 		this(lstFree, ip);
 		this.obs = obs;
 	}

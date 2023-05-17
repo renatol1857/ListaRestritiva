@@ -2,14 +2,14 @@ package com.renato.listrest.models.dto;
 
 import java.io.Serializable;
 
-import com.renato.listrest.models.entities.ListaFree;
+import com.renato.listrest.models.entities.Restritiva;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@Getter
 @AllArgsConstructor
-public class ListaFreeTDO implements Serializable {
+@Getter
+public class RestritivaDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
@@ -19,10 +19,9 @@ public class ListaFreeTDO implements Serializable {
 	private String fone = "";
 	private String dh;
 	private String dhup;
-
-	public static ListaFreeTDO transfonaEmDTO(ListaFree lstGeral) {
-		return new ListaFreeTDO(lstGeral.getId(), lstGeral.getFullfone(), lstGeral.getDdi(), lstGeral.getDdd(),
+	
+	public static RestritivaDTO transfonaEmDTO(Restritiva lstGeral) {
+		return new RestritivaDTO(lstGeral.getId(), lstGeral.getFullfone(), lstGeral.getDdi(), lstGeral.getDdd(),
 				lstGeral.getFone(), lstGeral.getDh(), lstGeral.getDhup());
 	}
-
 }

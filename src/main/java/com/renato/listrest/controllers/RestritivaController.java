@@ -9,37 +9,37 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.renato.listrest.models.dto.ListaRestDTO;
-import com.renato.listrest.models.services.ListaRestService;
+import com.renato.listrest.models.dto.RestritivaDTO;
+import com.renato.listrest.models.services.RestritivaService;
 
 @RestController
 @RequestMapping(path = "/restritiva")
-public class ListaRestController {
+public class RestritivaController {
 	@Autowired
-	ListaRestService service;
+	RestritivaService service;
 
 	@PostMapping(path = "/{fullfone}")
-	public ListaRestDTO savar(@PathVariable String fullfone) {
-		return ListaRestDTO.transfonaEmDTO(service.save(fullfone));
+	public RestritivaDTO savar(@PathVariable String fullfone) {
+		return RestritivaDTO.transfonaEmDTO(service.save(fullfone));
 	}
 	
 	@PostMapping
-	public ListaRestDTO savar(String ddi, String ddd, String fone ) {
-		return ListaRestDTO.transfonaEmDTO(service.save(ddi,ddd,fone));
+	public RestritivaDTO savar(String ddi, String ddd, String fone ) {
+		return RestritivaDTO.transfonaEmDTO(service.save(ddi,ddd,fone));
 	}
 
 	@GetMapping(path = "/{fullfone}")
-	public ListaRestDTO consultarFullFone(@PathVariable String fullfone) {
+	public RestritivaDTO consultarFullFone(@PathVariable String fullfone) {
 		return null; //service.consultarFullFone(fullfone);
 	}
 	
 	// @GetMapping
-	public ListaRestDTO consultar(String ddi, String ddd, String fone) {
+	public RestritivaDTO consultar(String ddi, String ddd, String fone) {
 		return null; //service.save(ddi, ddd, fone);
 	}
 	
 	@GetMapping
-	public List<ListaRestDTO> findByAll() {
+	public List<RestritivaDTO> findByAll() {
 		return service.findAll();
 	}
 	

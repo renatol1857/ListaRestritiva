@@ -9,22 +9,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.renato.listrest.exceptions.CustomErrorException;
-import com.renato.listrest.models.dto.ListaRestDTO;
-import com.renato.listrest.models.entities.ListaRest;
-import com.renato.listrest.models.repositories.ListaRestRepository;
+import com.renato.listrest.models.dto.RestritivaDTO;
+import com.renato.listrest.models.entities.Restritiva;
+import com.renato.listrest.models.repositories.RestritivaRepository;
 
 @Service
-public class ListaRestService {
+public class RestritivaService {
 	@Autowired
-	ListaRestRepository repo;
+	RestritivaRepository repo;
 
-	public ListaRest save(String ddi, String ddd, String fone) {
+	public Restritiva save(String ddi, String ddd, String fone) {
 		if (fone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "ddi/ddd/fone fora do padrao.");
 		String fullFone = ddi + ddd + fone;
-		Optional<ListaRest> obj = repo.findByFullfone(fullFone);
+		Optional<Restritiva> obj = repo.findByFullfone(fullFone);
 		// Optional<ListaRestGeral> obj = repo.findByDdiAndDddAndFone(ddi, ddd, fone);
-		ListaRest ltRest;
+		Restritiva ltRest;
 		if (obj.isPresent()) {
 			ltRest = obj.get();
 			boolean flagAlterou = false;
@@ -43,34 +43,34 @@ public class ListaRestService {
 			if (!flagAlterou)
 				return ltRest;
 		} else
-			ltRest = new ListaRest(ddi, ddd, fone);
+			ltRest = new Restritiva(ddi, ddd, fone);
 		return repo.save(ltRest);
 	}
 
-	public ListaRest save(String fullfone) {
+	public Restritiva save(String fullfone) {
 		if (fullfone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "fullfone fora do padrao.");
-		Optional<ListaRest> obj = repo.findByFullfone(fullfone);
+		Optional<Restritiva> obj = repo.findByFullfone(fullfone);
 		if (obj.isPresent())
 			return obj.get();
-		ListaRest ltRest = new ListaRest(fullfone);
+		Restritiva ltRest = new Restritiva(fullfone);
 		return repo.save(ltRest);
 	}
 
-	public List<ListaRestDTO> findAll() {
-		Iterable<ListaRest> lst = repo.findAll();
-		List<ListaRestDTO> lstDTO = new ArrayList<>();
-		for (ListaRest listGeral : lst) 
-			lstDTO.add(ListaRestDTO.transfonaEmDTO(listGeral));
+	public List<RestritivaDTO> findAll() {
+		Iterable<Restritiva> lst = repo.findAll();
+		List<RestritivaDTO> lstDTO = new ArrayList<>();
+		for (Restritiva listGeral : lst) 
+			lstDTO.add(RestritivaDTO.transfonaEmDTO(listGeral));
 		//	Consumer<ListaRestGeralDTO> fnc = obj -> ListaRestGeralDTO.transfonaEmDTO(obj);
 		//List<ListaRestGeralDTO> lstDTO = lst.forEach();
 		return lstDTO;
 	}
 
-	public ListaRest consultarFullFone(String fullfone) {
+	public Restritiva consultarFullFone(String fullfone) {
 		if (fullfone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "fullfone fora do padrao.");
-		Optional<ListaRest> obj = repo.findByFullfone(fullfone);
+		Optional<Restritiva> obj = repo.findByFullfone(fullfone);
 		if (obj.isPresent())
 			return obj.get();
 		throw new CustomErrorException(HttpStatus.NOT_FOUND, String.format("Fone [%s] não encontrado", fullfone));

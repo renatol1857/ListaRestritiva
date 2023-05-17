@@ -4,12 +4,12 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.renato.listrest.models.entities.HistFree;
-import com.renato.listrest.models.entities.ListaFree;
+import com.renato.listrest.models.entities.Free;
 
 public interface HistFreeRepository extends PagingAndSortingRepository<HistFree, Long>, CrudRepository<HistFree, Long> {
 	
-	public Iterable<HistFree> findAllByFree(ListaFree free);
+	public Iterable<HistFree> findAllByFree(Free free);
 	
-	public void deleteAllByFree (ListaFree free);
+	public void deleteAllByFree (Free free);
 	
 }
