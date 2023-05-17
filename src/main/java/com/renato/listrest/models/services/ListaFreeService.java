@@ -3,11 +3,15 @@ package com.renato.listrest.models.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.renato.listrest.exceptions.CustomErrorException;
+import com.renato.listrest.models.dto.HistFreeDTO;
+import com.renato.listrest.models.dto.ListaFreeHitoricoTDO;
 import com.renato.listrest.models.entities.HistFree;
 import com.renato.listrest.models.entities.ListaFree;
 import com.renato.listrest.models.repositories.HistFreeRepository;
@@ -89,15 +93,27 @@ public class ListaFreeService {
 		return free;
 	}
 	
-	public ListaFree consultarHistorico(String fullfone, String numPag) {
+	public ListaFreeHitoricoTDO consultarHistorico(String fullfone, String numPag) {
 		ListaFree free = consultar(fullfone);
-		return free;
+		ListaFreeHitoricoTDO freeDTO = ListaFreeHitoricoTDO.transfonaEmDTO(free);
+		Iterable<HistFree> lstHist = repoHist.findAllByFree(free);
+		
+		for (HistFree histFree : lstHist) {
+			freeDTO.getHistFreeDTO().add(HistFreeDTO.transfonaEmDTO(histFree));
+		}
+		return freeDTO;
 	}
 
+	public Iterable<ListaFree> findAll(int numPag) {
+		Pageable page = PageRequest.of(numPag, 20);
+		return repo.findAll(page);
+	}
+
+	public void apagar(String fullPhone) {
+		ListaFree free = consultar(fullPhone);
+		// Iterable<HistFree> lstAx = repoHist.findAllByFree(free);
+		repoHist.deleteAllByFree(free);
+		repo.delete(free);
+	}
 	
-	public Iterable<ListaFree> findAll() {
-		return repo.findAll();
-	}
-
-
 }

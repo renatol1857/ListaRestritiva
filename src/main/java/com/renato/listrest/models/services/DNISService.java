@@ -10,9 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.renato.listrest.exceptions.CustomErrorException;
-import com.renato.listrest.models.dto.PhoneRespostaDTO;
 import com.renato.listrest.models.entities.DNIS;
-import com.renato.listrest.models.entities.Phone;
 import com.renato.listrest.models.enums.StatusEn;
 import com.renato.listrest.models.repositories.DNISRepository;
 import com.renato.listrest.util.LogSrv;

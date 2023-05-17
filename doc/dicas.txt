@@ -18,15 +18,11 @@ Endpoints:
 		
 		/like/{Phone} consultar sem DDI e DDD - GET
 		
-		/apagar/{fullPhone}  - DELETE
-
-		/apagar  - DELETE
-			senha_especial_4 no body
-			
 		/listar/{num_pag} - GET
 			listar por paginas  
 
-		/{fullPhone}/{status}  - PATCH
+		/apagar/{fullPhone}  - DELETE
+			apagar em cascata
 
 		/carga  - POST
 			dados no body

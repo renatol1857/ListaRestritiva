@@ -2,6 +2,8 @@ package com.renato.listrest.models.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -31,7 +33,7 @@ public class HistFree implements Serializable {
 	private Long id;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	private ListaFree listFree;
+	private ListaFree free;
 
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
@@ -43,8 +45,8 @@ public class HistFree implements Serializable {
 	@Column(length = 100)
 	private String obs = "";
 	
-	public HistFree(ListaFree lstFree) {
-		this.listFree = lstFree;
+	public HistFree(ListaFree free) {
+		this.free = free;
 	}
 
 	public HistFree(ListaFree lstFree, String ip) {
@@ -61,6 +63,11 @@ public class HistFree implements Serializable {
 		this.obs = obs;
 	}
 
+	public String getDh() {
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
+		return fmt.format(this.dh);
+	}	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
