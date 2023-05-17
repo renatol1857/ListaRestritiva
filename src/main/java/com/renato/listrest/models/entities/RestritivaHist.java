@@ -24,7 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class HistFree implements Serializable {
+public class RestritivaHist  implements Serializable {
 	@Transient
 	private static final long serialVersionUID = 1L;
 
@@ -33,7 +33,7 @@ public class HistFree implements Serializable {
 	private Long id;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	private Free free;
+	private Restritiva restritiva;
 
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
@@ -45,12 +45,12 @@ public class HistFree implements Serializable {
 	@Column(length = 100)
 	private String obs = "";
 	
-	public HistFree(Free free) {
-		this.free = free;
+	public RestritivaHist(Restritiva obj) {
+		this.restritiva = obj;
 	}
 
-	public HistFree(Free lstFree, String ip) {
-		this(lstFree);
+	public RestritivaHist(Restritiva obj, String ip) {
+		this(obj);
 		if (ip.isEmpty())
 			ip = "127.0.0.1";
 		if (ip.equals("0:0:0:0:0:0:0:1"))
@@ -58,16 +58,16 @@ public class HistFree implements Serializable {
 		this.ip = ip;
 	}
 
-	public HistFree(Free lstFree, String ip, String obs) {
-		this(lstFree, ip);
+	public RestritivaHist(Restritiva obj, String ip, String obs) {
+		this(obj, ip);
 		this.obs = obs;
 	}
 
 	public String getDh() {
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
 		return fmt.format(this.dh);
-	}	
-	
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -81,13 +81,15 @@ public class HistFree implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		HistFree other = (HistFree) obj;
+		RestritivaHist other = (RestritivaHist) obj;
 		return Objects.equals(id, other.id);
 	}
 
 	@Override
 	public String toString() {
-		return "HistFreeGeral [id=" + id + ", dh=" + dh + ", ip=" + ip + ", obs=" + obs + "]";
-	}
+		return "HistRestritiva [id=" + id + ", dh=" + getDh() + ", ip=" + ip + ", obs=" + obs + "]";
+	}	
+	
+	
 
 }

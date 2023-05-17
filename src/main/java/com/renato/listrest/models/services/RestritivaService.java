@@ -1,62 +1,121 @@
 package com.renato.listrest.models.services;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.renato.listrest.exceptions.CustomErrorException;
-import com.renato.listrest.models.dto.RestritivaDTO;
+import com.renato.listrest.models.dto.RestritivaHistDTO;
+import com.renato.listrest.models.dto.RestritivaHistLstDTO;
 import com.renato.listrest.models.entities.Restritiva;
+import com.renato.listrest.models.entities.RestritivaHist;
+import com.renato.listrest.models.repositories.HistRestritivoRepository;
 import com.renato.listrest.models.repositories.RestritivaRepository;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.transaction.Transactional;
 
 @Service
 public class RestritivaService {
 	@Autowired
 	RestritivaRepository repo;
+	
+	@Autowired
+	HistRestritivoRepository repoHist;
+	
+	@Autowired(required = true)
+	private HttpServletRequest request;
 
-	public Restritiva save(String ddi, String ddd, String fone) {
+	public ResponseEntity<Restritiva> save(String ddi, String ddd, String fone) {
 		if (fone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "ddi/ddd/fone fora do padrao.");
 		String fullFone = ddi + ddd + fone;
 		Optional<Restritiva> obj = repo.findByFullfone(fullFone);
-		// Optional<ListaRestGeral> obj = repo.findByDdiAndDddAndFone(ddi, ddd, fone);
-		Restritiva ltRest;
+		Restritiva restritiva;
+		String strDesc = "Created with DDI/DDD/Phone";
 		if (obj.isPresent()) {
-			ltRest = obj.get();
+			restritiva = obj.get();
 			boolean flagAlterou = false;
-			if (!ltRest.getDdi().equals(ddi)) {
-				ltRest.setDdi(ddi);
+			if (!restritiva.getDdi().equals(ddi)) {
+				restritiva.setDdi(ddi);
 				flagAlterou = true;
 			}
-			if (!ltRest.getDdd().equals(ddd)) {
-				ltRest.setDdd(ddd);
+			if (!restritiva.getDdd().equals(ddd)) {
+				restritiva.setDdd(ddd);
 				flagAlterou = true;
 			}
-			if (!ltRest.getFone().equals(fone)) {
-				ltRest.setFone(fone);
+			if (!restritiva.getFone().equals(fone)) {
+				restritiva.setFone(fone);
 				flagAlterou = true;
 			}
 			if (!flagAlterou)
-				return ltRest;
+				return ResponseEntity.status(HttpStatus.OK).body(restritiva);
+			strDesc = "Updated with DDI/DDD/Phone";
 		} else
-			ltRest = new Restritiva(ddi, ddd, fone);
-		return repo.save(ltRest);
+			restritiva = new Restritiva(ddi, ddd, fone);
+		String remoteIP = request.getRemoteAddr();
+		restritiva = repo.save(restritiva);
+		repoHist.save(new RestritivaHist(restritiva, remoteIP, strDesc));
+		return ResponseEntity.status(HttpStatus.CREATED).body(restritiva);
 	}
 
-	public Restritiva save(String fullfone) {
+	public ResponseEntity<Restritiva> save(String fullfone) {
 		if (fullfone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, "fullfone fora do padrao.");
 		Optional<Restritiva> obj = repo.findByFullfone(fullfone);
 		if (obj.isPresent())
+			return ResponseEntity.status(HttpStatus.OK).body(obj.get());
+		String remoteIP = request.getRemoteAddr();
+		Restritiva restritiva = new Restritiva(fullfone);
+		restritiva = repo.save(restritiva);
+		repoHist.save(new RestritivaHist(restritiva, remoteIP, "Created with fullPhone"));
+		return ResponseEntity.status(HttpStatus.CREATED).body(restritiva);
+	}
+	
+	public Restritiva consultar(String fullfone) {
+		if (fullfone.isEmpty())
+			throw new CustomErrorException(HttpStatus.BAD_REQUEST, String.format("Fone [%s] fora do padrão", fullfone));
+		Optional<Restritiva> obj = repo.findByFullfone(fullfone);
+		if (obj.isPresent())
 			return obj.get();
-		Restritiva ltRest = new Restritiva(fullfone);
-		return repo.save(ltRest);
+		throw new CustomErrorException(HttpStatus.NOT_FOUND, String.format("Fone [%s] não encontrado", fullfone));
 	}
 
+	public Restritiva consultarInc(String fullfone) {
+		Restritiva obj = consultar(fullfone);
+		String remoteIP = request.getRemoteAddr();
+		repoHist.save(new RestritivaHist(obj, remoteIP, "Consult with fullPhone"));
+		return obj;
+	}	
+	
+	
+	public Iterable<Restritiva> findAll(int numPag) {
+		Pageable page = PageRequest.of(numPag, 20);
+		return repo.findAll(page);
+	}
+
+	@Transactional
+	public void apagar(String fullPhone) {
+		Restritiva obj = consultar(fullPhone);
+		repoHist.deleteAllByRestritiva(obj);
+		repo.delete(obj);
+	}	
+	
+	public RestritivaHistDTO consultarHistorico(String fullfone, String numPag) {
+		Restritiva obj = consultar(fullfone);
+		RestritivaHistDTO objDTO = RestritivaHistDTO.transfonaEmDTO(obj);
+		Iterable<RestritivaHist> lst = repoHist.findAllByRestritiva(obj);
+		for (RestritivaHist hist : lst) 
+			objDTO.getRestritivaHistListDTO().add(RestritivaHistLstDTO.transfonaEmDTO(hist));
+		return objDTO;
+	}
+
+	/*
 	public List<RestritivaDTO> findAll() {
 		Iterable<Restritiva> lst = repo.findAll();
 		List<RestritivaDTO> lstDTO = new ArrayList<>();
@@ -66,6 +125,7 @@ public class RestritivaService {
 		//List<ListaRestGeralDTO> lstDTO = lst.forEach();
 		return lstDTO;
 	}
+	*/
 
 	public Restritiva consultarFullFone(String fullfone) {
 		if (fullfone.isEmpty())

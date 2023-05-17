@@ -7,7 +7,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,40 +21,53 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-
-@NoArgsConstructor
 @Getter
 @Setter
-public class HistFone implements Serializable {
+@NoArgsConstructor
+public class FreeHist implements Serializable {
 	@Transient
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne (cascade = CascadeType.ALL)
-	private Phone phone;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Free free;
+
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
 	private Instant dh;
-	@Column(nullable = false, updatable = true)
-	@UpdateTimestamp
-	private Instant dhup;
 
-	public HistFone(Phone phone) {
-		super();
-		this.phone = phone;
+	@Column(length = 50)
+	private String ip = "127.0.0.1";
+
+	@Column(length = 100)
+	private String obs = "";
+	
+	public FreeHist(Free free) {
+		this.free = free;
+	}
+
+	public FreeHist(Free lstFree, String ip) {
+		this(lstFree);
+		if (ip.isEmpty())
+			ip = "127.0.0.1";
+		if (ip.equals("0:0:0:0:0:0:0:1"))
+			ip = "127.0.0.1";
+		this.ip = ip;
+	}
+
+	public FreeHist(Free lstFree, String ip, String obs) {
+		this(lstFree, ip);
+		this.obs = obs;
 	}
 
 	public String getDh() {
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
 		return fmt.format(this.dh);
-	}
-
-	public String getDhup() {
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
-		return fmt.format(this.dhup);
-	}
-
+	}	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -69,13 +81,13 @@ public class HistFone implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		HistFone other = (HistFone) obj;
+		FreeHist other = (FreeHist) obj;
 		return Objects.equals(id, other.id);
 	}
 
 	@Override
 	public String toString() {
-		return "HistFone [id=" + id + ", phone=" + phone + ", dh=" + dh + "]";
+		return "HistFreeGeral [id=" + id + ", dh=" + getDh() + ", ip=" + ip + ", obs=" + obs + "]";
 	}
 
 }

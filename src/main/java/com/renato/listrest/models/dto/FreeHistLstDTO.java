@@ -1,6 +1,6 @@
 package com.renato.listrest.models.dto;
 
-import com.renato.listrest.models.entities.HistFree;
+import com.renato.listrest.models.entities.FreeHist;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -10,14 +10,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class HistFreeDTO {
+public class FreeHistLstDTO {
 	private Long id;
 	private String ip;
 	private String dh;
 	private String obs;
 
-	public static HistFreeDTO transfonaEmDTO(HistFree histFree) {
-		return new HistFreeDTO(histFree.getId(), histFree.getIp(), histFree.getDh(), histFree.getObs());
+	public static FreeHistLstDTO transfonaEmDTO(FreeHist histFree) {
+		return new FreeHistLstDTO(histFree.getId(), histFree.getIp(), histFree.getDh(), histFree.getObs());
 	}
 
 }

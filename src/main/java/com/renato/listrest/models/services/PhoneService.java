@@ -21,7 +21,7 @@ public class PhoneService {
 	@Autowired
 	private DNISService dnisService;
 	@Autowired
-	private HistPhoneService histPhoneService;
+	private PhoneHistService histPhoneService;
 
 	public PhoneRespostaDTO save(String sDnis, String fullfone) {
 		if (fullfone.isEmpty())

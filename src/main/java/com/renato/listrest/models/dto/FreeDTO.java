@@ -9,7 +9,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class FreeTDO implements Serializable {
+public class FreeDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
@@ -20,8 +20,8 @@ public class FreeTDO implements Serializable {
 	private String dh;
 	private String dhup;
 
-	public static FreeTDO transfonaEmDTO(Free lstGeral) {
-		return new FreeTDO(lstGeral.getId(), lstGeral.getFullfone(), lstGeral.getDdi(), lstGeral.getDdd(),
+	public static FreeDTO transfonaEmDTO(Free lstGeral) {
+		return new FreeDTO(lstGeral.getId(), lstGeral.getFullfone(), lstGeral.getDdi(), lstGeral.getDdd(),
 				lstGeral.getFone(), lstGeral.getDh(), lstGeral.getDhup());
 	}
 

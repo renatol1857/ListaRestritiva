@@ -10,11 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.renato.listrest.exceptions.CustomErrorException;
-import com.renato.listrest.models.dto.HistFreeDTO;
-import com.renato.listrest.models.dto.FreeHistoricoTDO;
-import com.renato.listrest.models.entities.HistFree;
+import com.renato.listrest.models.dto.FreeHistLstDTO;
+import com.renato.listrest.models.dto.FreeHistDTO;
+import com.renato.listrest.models.entities.FreeHist;
 import com.renato.listrest.models.entities.Free;
-import com.renato.listrest.models.repositories.HistFreeRepository;
+import com.renato.listrest.models.repositories.FreeHistRepository;
 import com.renato.listrest.models.repositories.FreeRepository;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,12 +24,12 @@ import jakarta.transaction.Transactional;
 public class FreeService {
 	@Autowired
 	FreeRepository repo;
-	
+
 	@Autowired
-	HistFreeRepository repoHist;
-	
+	FreeHistRepository repoHist;
+
 	@Autowired(required = true)
-	private HttpServletRequest  request;
+	private HttpServletRequest request;
 
 	public ResponseEntity<Free> save(String ddi, String ddd, String fone) {
 		if (fone.isEmpty())
@@ -57,10 +57,10 @@ public class FreeService {
 			if (!flagAlterou)
 				return ResponseEntity.status(HttpStatus.OK).body(lstFree);
 			strDesc = "Updated with DDI/DDD/Phone";
-		} else 
+		} else
 			lstFree = new Free(ddi, ddd, fone);
 		lstFree = repo.save(lstFree);
-		repoHist.save(new HistFree(lstFree, remoteIP, strDesc));
+		repoHist.save(new FreeHist(lstFree, remoteIP, strDesc));
 		return ResponseEntity.status(HttpStatus.CREATED).body(lstFree);
 	}
 
@@ -73,11 +73,10 @@ public class FreeService {
 		String remoteIP = request.getRemoteAddr();
 		Free lstFree = new Free(fullfone);
 		lstFree = repo.save(lstFree);
-		repoHist.save(new HistFree(lstFree, remoteIP, "Created with fullPhone"));
+		repoHist.save(new FreeHist(lstFree, remoteIP, "Created with fullPhone"));
 		return ResponseEntity.status(HttpStatus.CREATED).body(lstFree);
 	}
-	
-	
+
 	public Free consultar(String fullfone) {
 		if (fullfone.isEmpty())
 			throw new CustomErrorException(HttpStatus.BAD_REQUEST, String.format("Fone [%s] fora do padrão", fullfone));
@@ -86,21 +85,21 @@ public class FreeService {
 			return obj.get();
 		throw new CustomErrorException(HttpStatus.NOT_FOUND, String.format("Fone [%s] não encontrado", fullfone));
 	}
-	
+
 	public Free consultarInc(String fullfone) {
 		Free free = consultar(fullfone);
 		String remoteIP = request.getRemoteAddr();
-		repoHist.save(new HistFree(free, remoteIP, "Consult with fullPhone"));
+		repoHist.save(new FreeHist(free, remoteIP, "Consult with fullPhone"));
 		return free;
 	}
-	
-	public FreeHistoricoTDO consultarHistorico(String fullfone, String numPag) {
+
+	public FreeHistDTO consultarHistorico(String fullfone, String numPag) {
 		Free free = consultar(fullfone);
-		FreeHistoricoTDO freeDTO = FreeHistoricoTDO.transfonaEmDTO(free);
-		Iterable<HistFree> lstHist = repoHist.findAllByFree(free);
-		
-		for (HistFree histFree : lstHist) {
-			freeDTO.getHistFreeDTO().add(HistFreeDTO.transfonaEmDTO(histFree));
+		FreeHistDTO freeDTO = FreeHistDTO.transfonaEmDTO(free);
+		Iterable<FreeHist> lstHist = repoHist.findAllByFree(free);
+
+		for (FreeHist histFree : lstHist) {
+			freeDTO.getFreeHistLstDTO().add(FreeHistLstDTO.transfonaEmDTO(histFree));
 		}
 		return freeDTO;
 	}
@@ -117,5 +116,5 @@ public class FreeService {
 		repoHist.deleteAllByFree(free);
 		repo.delete(free);
 	}
-	
+
 }

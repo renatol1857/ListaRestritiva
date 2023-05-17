@@ -4,10 +4,11 @@ import java.io.Serializable;
 
 import com.renato.listrest.models.entities.Restritiva;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 public class RestritivaDTO implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -3,17 +3,17 @@ package com.renato.listrest.models.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.renato.listrest.models.entities.HistFone;
+import com.renato.listrest.models.entities.PhoneHist;
 import com.renato.listrest.models.entities.Phone;
-import com.renato.listrest.models.repositories.HistPhoneRepository;
+import com.renato.listrest.models.repositories.PhoneHistRepository;
 
 @Service
-public class HistPhoneService {
+public class PhoneHistService {
 	@Autowired
-	private HistPhoneRepository repo;
+	private PhoneHistRepository repo;
 	
-	public HistFone save(Phone phone) {
-		return repo.save(new HistFone(phone));
+	public PhoneHist save(Phone phone) {
+		return repo.save(new PhoneHist(phone));
 	}
 	
 	public void apagar(Phone fone) {

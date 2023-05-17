@@ -11,20 +11,20 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class FreeHistoricoTDO implements Serializable {
+public class FreeHistDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String fullfone = "";
 	private String dh;
 	private String dhup;
-	private List<HistFreeDTO> HistFreeDTO = new ArrayList<>();
+	private List<FreeHistLstDTO> freeHistLstDTO = new ArrayList<>();
 
-	public static FreeHistoricoTDO transfonaEmDTO(Free lstFree) {
-		return new FreeHistoricoTDO(lstFree.getId(), lstFree.getFullfone(), lstFree.getDh(), lstFree.getDhup());
+	public static FreeHistDTO transfonaEmDTO(Free lst) {
+		return new FreeHistDTO(lst.getId(), lst.getFullfone(), lst.getDh(), lst.getDhup());
 	}
 
-	private FreeHistoricoTDO(Long id, String fullPhone, String sDh, String sDhup) {
+	private FreeHistDTO(Long id, String fullPhone, String sDh, String sDhup) {
 		this.id = id;
 		this.fullfone = fullPhone;
 		this.dh = sDh;
