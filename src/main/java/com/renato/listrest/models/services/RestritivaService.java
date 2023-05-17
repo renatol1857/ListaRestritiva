@@ -14,7 +14,7 @@ import com.renato.listrest.models.dto.RestritivaHistDTO;
 import com.renato.listrest.models.dto.RestritivaHistLstDTO;
 import com.renato.listrest.models.entities.Restritiva;
 import com.renato.listrest.models.entities.RestritivaHist;
-import com.renato.listrest.models.repositories.HistRestritivoRepository;
+import com.renato.listrest.models.repositories.RestritivoHistRepository;
 import com.renato.listrest.models.repositories.RestritivaRepository;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,7 +26,7 @@ public class RestritivaService {
 	RestritivaRepository repo;
 	
 	@Autowired
-	HistRestritivoRepository repoHist;
+	RestritivoHistRepository repoHist;
 	
 	@Autowired(required = true)
 	private HttpServletRequest request;

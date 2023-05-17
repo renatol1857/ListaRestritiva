@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.renato.listrest.models.entities.RestritivaHist;
 import com.renato.listrest.models.entities.Restritiva;
 
-public interface HistRestritivoRepository extends CrudRepository<RestritivaHist, Long> {
+public interface RestritivoHistRepository extends CrudRepository<RestritivaHist, Long> {
 	
 	public Iterable<RestritivaHist> findAllByRestritiva(Restritiva restritiva);
 	
