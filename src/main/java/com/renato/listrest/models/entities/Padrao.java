@@ -33,11 +33,11 @@ public class Padrao implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private PadroesEn padrao;
+	private PadroesEn tipoPadrao;
 
 	private StatusEn status;
 
-	@Column(length = 200)
+	@Column(length = 50)
 	private String extra = "";
 
 	@Column(length = 200)
@@ -52,7 +52,7 @@ public class Padrao implements Serializable {
 	private Instant dhup;
 
 	public Padrao(PadroesEn padrao) {
-		this.padrao = padrao;
+		this.tipoPadrao = padrao;
 		status = StatusEn.APROVACAO;
 	}
 
@@ -96,7 +96,7 @@ public class Padrao implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Padrao [id=" + id + ", padrao=" + padrao + ", status=" + status + ", extra=" + extra + ", descricao="
+		return "Padrao [id=" + id + ", padrao=" + tipoPadrao + ", status=" + status + ", extra=" + extra + ", descricao="
 				+ descricao + ", dh=" + getDh() + ", dhup=" + getDhup() + "]";
 	}
 

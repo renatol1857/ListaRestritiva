@@ -1,6 +1,15 @@
 Endpoints:
 
 ===========================================
+	/estatica  - consulta lista restritiva estatica
+	
+		/{fullPhone} consultar  - GET OK
+
+		/like/{Phone} consultar sem DDI e DDD - GET
+			
+		/{fullPhone} consultar e incremento - PUT  OK
+		
+===========================================
 	/free  - Estatica
 		/{fullPhone} incluir  - POST OK
 
@@ -15,13 +24,11 @@ Endpoints:
 		/{fullPhone} consultar e incremento - PUT  OK
 		
 		/historico/{fullPhone}/{num_pag} consultar com historico - GET
-		
-		/like/{Phone} consultar sem DDI e DDD - GET
-		
-		/listar/{num_pag} - GET
+				
+		/listar/{num_pag} - GET - OK
 			listar por paginas  
 
-		/apagar/{fullPhone}  - DELETE
+		/apagar/{fullPhone}  - DELETE - OK
 			apagar em cascata
 
 		/carga  - POST
@@ -32,30 +39,24 @@ Endpoints:
 
 ===========================================
 	/restritiva  - Estatica
-		/{fullPhone} incluir -  (POST)
+		/{fullPhone} incluir -  (POST) ok
 
-		/ incluir  -  (POST)
+		/ incluir  -  (POST) - OK
 			dados no body
 				ddi
 				ddd
 				fone
 
-		/{fullPhone} consultar com incremento -  (PUT)
+		/{fullPhone} consultar  -  (GET) OK
 
-		/{fullPhone} consultar  -  (GET)
+		/{fullPhone} consultar com incremento -  (PUT) - OK
 
-		/like/{Phone} consultar sem DDI e DDD -  (GET)
-				
-		/apagar/{fullPhone} -  (DELETE)
+		/historico/{fullPhone}/{num_pag} consultar com historico - GET
 
-		/apagar  -  (DELETE)
-			senha_especial_4 no body
-	
-		/listar/{num_pag} - (GET)
+		/listar/{num_pag} - (GET) - OK
 			listar por paginas  
 
-		/{fullPhone}/{status} (PATCH)
-			Alterar Staus
+		/apagar/{fullPhone} -  (DELETE)  OK
 			
 		/carga  - POST
 			dados no body
@@ -64,17 +65,22 @@ Endpoints:
 			dados no body
 
 ===========================================
-	/padrao
+	/padrao 
 		/ Incluir - POST
 			dados no body
 
-		/{fullPhone} consultar - GET
-		
-		/apagar -  (DELETE)
+		/ listarAll - GET
+
+		/ Atualizar - PUT 
 			dados no body
 
-		/{status} (PATCH)
-			Alterar Staus
+		/extra/{id}/{extra}  Atualizar (PATCH)
+			
+		/status/{id}/{status} Atualizar (PATCH)
+
+		/obs/{id}/{obs} Atualizar (PATCH)
+		
+		/{id} -  (DELETE)
 
 ===========================================
 	relatorio
