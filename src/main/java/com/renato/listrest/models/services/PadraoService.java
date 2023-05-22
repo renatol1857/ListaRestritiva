@@ -56,5 +56,9 @@ public class PadraoService {
 		return ResponseEntity.status(HttpStatus.CREATED).body(padrao);
 	}
 	
+	public Iterable<Padrao> findAll(int numPage){
+		
+		return null;
+	}
 	
 }

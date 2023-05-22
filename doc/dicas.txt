@@ -69,12 +69,9 @@ Endpoints:
 		/ Incluir - POST
 			dados no body
 
-		/ listarAll - GET
-
-		/ Atualizar - PUT 
-			dados no body
-
-		/extra/{id}/{extra}  Atualizar (PATCH)
+		/{num_pag} listarAll - GET
+		
+		/historico/{id}/{num_pag} listar com hist - GET
 			
 		/status/{id}/{status} Atualizar (PATCH)
 
