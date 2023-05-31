@@ -26,8 +26,7 @@ public class PadraoController {
 	
 	@GetMapping(path = "/{num_pag}")
 	public Iterable<Padrao> findAll(@PathVariable(name = "num_pag") int numPage){
-		
-		return null;
+		return service.findAll(numPage);
 	}
 	
 	

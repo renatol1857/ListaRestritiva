@@ -19,6 +19,7 @@ public class ListaRestritivaApplication implements CommandLineRunner{
 	
 	@Override
 	public void run(String... args) throws Exception {
+		
 		// System.out.println("Iniciou o Servidor!");
 	}
 

@@ -12,7 +12,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ErrorResponse {
+public class ResponseGeralRL {
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private Date timestamp;
@@ -24,11 +24,11 @@ public class ErrorResponse {
     private int rc=0;
     private String stackTrace;
 
-    public ErrorResponse() {
+    public ResponseGeralRL() {
         timestamp = new Date();
     }
 
-    public ErrorResponse(HttpStatus httpStatus, int codMsg, String message ) {
+    public ResponseGeralRL(HttpStatus httpStatus, int codMsg, String message ) {
         this();
 
         this.httpCode = httpStatus.value();
@@ -37,7 +37,7 @@ public class ErrorResponse {
         this.codMsg = codMsg;
     }
 
-    public ErrorResponse( HttpStatus httpStatus, int codMsg, String message, String stackTrace ) {
+    public ResponseGeralRL( HttpStatus httpStatus, int codMsg, String message, String stackTrace ) {
         this( httpStatus, codMsg, message );
         this.stackTrace = stackTrace;
     }

@@ -2,7 +2,7 @@ package com.renato.listrest.models.enums;
 
 import java.util.Optional;
 
-public enum ServicosRestritivaEn {
+public enum FeatureRestritivaEn {
 	INCLUIR_FULLPHONE(1, "Incluir utilizando o telefone completo 5511....."),
 	INCLUIR(2, "Incluir utilizando o DDI/DDD/telefone."),
 	CONSULTAR_FULLPHONE(3, "Consultar utilizando o telefone completo 5511....."),
@@ -15,7 +15,7 @@ public enum ServicosRestritivaEn {
 	private int cod;
 	private String msg;
 
-	ServicosRestritivaEn(int cod, String msg) {
+	FeatureRestritivaEn(int cod, String msg) {
 		this.cod = cod;
 		this.msg = msg;
 	}
@@ -31,17 +31,17 @@ public enum ServicosRestritivaEn {
 	public static boolean isValid(Integer cod) {
 		if (cod == null)
 			return false;
-		for (ServicosRestritivaEn x : ServicosRestritivaEn.values()) {
+		for (FeatureRestritivaEn x : FeatureRestritivaEn.values()) {
 			if (x.getCod() == cod)
 				return true;
 		}
 		return false;
 	}
 
-	public static Optional<ServicosRestritivaEn> toEnum(Integer cod) {
+	public static Optional<FeatureRestritivaEn> toEnum(Integer cod) {
 		if (cod == null)
 			return null;
-		for (ServicosRestritivaEn x : ServicosRestritivaEn.values()) {
+		for (FeatureRestritivaEn x : FeatureRestritivaEn.values()) {
 			if (x.getCod() == cod)
 				return Optional.of(x);
 		}
@@ -51,7 +51,7 @@ public enum ServicosRestritivaEn {
 	public static Optional<String> toMsg(Integer cod) {
 		if (cod == null)
 			return null;
-		for (ServicosRestritivaEn x : ServicosRestritivaEn.values()) {
+		for (FeatureRestritivaEn x : FeatureRestritivaEn.values()) {
 			if (x.getCod() == cod)
 				return Optional.of(x.getMsg());
 		}

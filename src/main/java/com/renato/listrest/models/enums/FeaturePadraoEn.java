@@ -2,7 +2,7 @@ package com.renato.listrest.models.enums;
 
 import java.util.Optional;
 
-public enum ServicosPadraoEn {
+public enum FeaturePadraoEn {
 	INCLUIR(1, "Incluir dados."), LISTAR_PAG(2, "Listar todos os padrões com paginação"),
 	LISTAR_HISTORICO_PAG(3, "Listar um padrões com o seus históricos."), UPDATE_STATUS(4, "Alterar o Status do padrão"),
 	UPDATE_OBS(5, "Alterar a descrição do padrão"), DELETE_BY_ID(6, "Apagar o padrão pelo ID e seus históricos");
@@ -10,7 +10,7 @@ public enum ServicosPadraoEn {
 	private int cod;
 	private String msg;
 
-	ServicosPadraoEn(int cod, String msg) {
+	FeaturePadraoEn(int cod, String msg) {
 		this.cod = cod;
 		this.msg = msg;
 	}
@@ -26,17 +26,17 @@ public enum ServicosPadraoEn {
 	public static boolean isValid(Integer cod) {
 		if (cod == null)
 			return false;
-		for (ServicosPadraoEn x : ServicosPadraoEn.values()) {
+		for (FeaturePadraoEn x : FeaturePadraoEn.values()) {
 			if (x.getCod() == cod)
 				return true;
 		}
 		return false;
 	}
 
-	public static Optional<ServicosPadraoEn> toEnum(Integer cod) {
+	public static Optional<FeaturePadraoEn> toEnum(Integer cod) {
 		if (cod == null)
 			return null;
-		for (ServicosPadraoEn x : ServicosPadraoEn.values()) {
+		for (FeaturePadraoEn x : FeaturePadraoEn.values()) {
 			if (x.getCod() == cod)
 				return Optional.of(x);
 		}
@@ -46,7 +46,7 @@ public enum ServicosPadraoEn {
 	public static Optional<String> toMsg(Integer cod) {
 		if (cod == null)
 			return null;
-		for (ServicosPadraoEn x : ServicosPadraoEn.values()) {
+		for (FeaturePadraoEn x : FeaturePadraoEn.values()) {
 			if (x.getCod() == cod)
 				return Optional.of(x.getMsg());
 		}

@@ -4,19 +4,20 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
-import com.renato.listrest.models.enums.PadroesEn;
-import com.renato.listrest.models.enums.StatusEn;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,48 +27,34 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Padrao implements Serializable {
+@Table(name = "ip_liberados")
+public class IPLiberados implements Serializable {
 	@Transient
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Column(length = 30)
+	private String ip="127.0.0.1";
+
+	@ManyToMany(mappedBy = "ipLiberados")
+	private List<Servicos> servicos = new ArrayList<>();
 	
-	@Column(length = 50)
-	private String alias;
-
-	private PadroesEn tipoPadrao;
-
-	private StatusEn status;
-
-	@Column(length = 50)
-	private String extra = "";
-
-	@Column(length = 200)
-	private String descricao = "";
-
-	@Column(updatable = false, nullable = false)
 	@CreationTimestamp
+	@Column(nullable = false, updatable = false)
 	private Instant dh;
 
-	@Column(nullable = false, updatable = true)
 	@UpdateTimestamp
-	private Instant dhup;
+	@Column(nullable = false, updatable = true)
+	private Instant dhUp;
+	private String obs="";
 
-	public Padrao(String alias,PadroesEn padrao) {
-		this.tipoPadrao = padrao;
-		this.alias = alias;
-		status = StatusEn.APROVACAO;
-	}
-
-	public Padrao(String alias, PadroesEn padrao, String descricao) {
-		this(alias, padrao);
-		this.descricao = descricao;
-	}
-
-	public Padrao(String alias, PadroesEn padrao, String descricao, String extra) {
-		this(alias, padrao, descricao);
-		this.extra = extra;
+	public IPLiberados(String ip, String obs) {
+		super();
+		this.obs = obs;
+		this.ip = ip;
 	}
 
 	public String getDh() {
@@ -75,11 +62,12 @@ public class Padrao implements Serializable {
 		return fmt.format(this.dh);
 	}
 
-	public String getDhup() {
+	public String getDhUp() {
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
-		return fmt.format(this.dhup);
+		return fmt.format(this.dhUp);
 	}
-
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -93,14 +81,8 @@ public class Padrao implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Padrao other = (Padrao) obj;
+		IPLiberados other = (IPLiberados) obj;
 		return Objects.equals(id, other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "Padrao [id=" + id + ", padrao=" + tipoPadrao + ", status=" + status + ", extra=" + extra + ", descricao="
-				+ descricao + ", dh=" + getDh() + ", dhup=" + getDhup() + "]";
 	}
 
 }

@@ -13,6 +13,8 @@ import lombok.Setter;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class PadraoDTO {
 
+	private String alias = "";
+
 	private PadroesEn tipoPadrao;
 
 	private String extra = "";
@@ -20,7 +22,7 @@ public class PadraoDTO {
 	private String descricao = "";
 
 	public static Padrao transfonaEmObj(PadraoDTO obj) {
-		return new Padrao(obj.getTipoPadrao(), obj.getDescricao(), obj.getExtra());
+		return new Padrao(obj.alias, obj.getTipoPadrao(), obj.getDescricao(), obj.getExtra());
 	}
 
 }

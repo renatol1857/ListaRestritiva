@@ -10,6 +10,7 @@ public enum PadroesEn {
 	NOT_DDD(9, "Não aceita o DDD ABC."), NOT_SEQUENTIAL(10, "Não aceita os sequencial XXXX."),
 	NOT_ANONYMOUS(11, "Não aceita ANONYMOUS como string."),
 	NOT_STRING(12, "Não aceita string na composição do número.");
+	
 
 	private int cod;
 	private String msg;

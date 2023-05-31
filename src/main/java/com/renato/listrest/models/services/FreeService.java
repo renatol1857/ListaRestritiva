@@ -93,7 +93,7 @@ public class FreeService {
 		return free;
 	}
 
-	public FreeHistDTO consultarHistorico(String fullfone, String numPag) {
+	public FreeHistDTO consultarHistorico(String fullfone, int numPag) {
 		Free free = consultar(fullfone);
 		FreeHistDTO freeDTO = FreeHistDTO.transfonaEmDTO(free);
 		Iterable<FreeHist> lstHist = repoHist.findAllByFree(free);

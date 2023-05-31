@@ -9,6 +9,31 @@ Endpoints:
 			
 		/{fullPhone} consultar e incremento - PUT  OK
 		
+		/ddi/ddd/phone - consultar e incremento - PUT  OK
+				
+===========================================
+	/dinamica  - consulta lista restritiva dinamcia
+	
+		/{fullPhone} consultar  - GET OK
+
+		/like/{Phone} consultar sem DDI e DDD - GET
+			
+		/{fullPhone} consultar e incremento - PUT  OK
+		
+===========================================
+	/mista  - consulta lista restritiva estatica  e depois a dinamica
+	
+		/{fullPhone} consultar  - GET OK
+
+		/like/{Phone} consultar sem DDI e DDD - GET
+			
+		/{fullPhone} consultar e incremento - PUT  OK
+		
+		
+
+
+
+		
 ===========================================
 	/free  - Estatica
 		/{fullPhone} incluir  - POST OK
@@ -20,8 +45,6 @@ Endpoints:
 				fone
 
 		/{fullPhone} consultar  - GET OK
-		
-		/{fullPhone} consultar e incremento - PUT  OK
 		
 		/historico/{fullPhone}/{num_pag} consultar com historico - GET
 				
@@ -202,4 +225,67 @@ Endpoints:
 	
 ===========================================
 	mcdu/cfg
+	
+
+
+===========================================
+TipoEndPoint
+	consultar
+	consultarInc
+	consultarLike
+	
+	consultarComHistorico
+	ListarAll
+	
+	incluir
+	Atualizar
+	AtualizarParam
+	Apagar
+	
+	Carga
+	Exportar
+	
+	addMonitor
+	delMonitor
+	
+	monitor actuator:
+
+pagina:
+	User
+		
+	MonitorANI
+	
+	MonitorServer
+	
+	MonitorTopX
+		Listas
+	
+	Monitor Listas
+		ListaRestritiva
+		ListaFree
+		ListaPadroes
+		ListaDinamica
+		ListaMista
+	
+	ConfigurarServer
+		IPAcesso
+		TopX
+		CodErros		
+		ListaPadroes
+		
+	Expurgo
+		Monitor
+		Config 
+			Fixo
+			Dinamico
+		Executar
+		
+	TrilhaDeAuditoria
+		Pesquisar
+		
+	ListaRestritiva
+	ListaFree
+	ListaPadroes
+	ListaDinamica
+	ListaMista
 	

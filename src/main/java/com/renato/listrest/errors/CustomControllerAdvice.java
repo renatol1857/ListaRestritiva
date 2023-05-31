@@ -31,11 +31,11 @@ public class CustomControllerAdvice {
         String stackTrace = stringWriter.toString();
         stackTrace = stackTrace.substring(0, 500);
 
-        return new ResponseEntity<> (new ErrorResponse(status, 1, e.getMessage(), stackTrace  ), status );
+        return new ResponseEntity<> (new ResponseGeralRL(status, 1, e.getMessage(), stackTrace  ), status );
     }
 
     @ExceptionHandler(CustomErrorException.class)
-    public ResponseEntity<ErrorResponse> handleCustomErrorExceptions( Exception e ) {
+    public ResponseEntity<ResponseGeralRL> handleCustomErrorExceptions( Exception e ) {
         CustomErrorException customErrorException = (CustomErrorException) e;
 
         HttpStatus status = customErrorException.getStatus();
@@ -44,10 +44,10 @@ public class CustomControllerAdvice {
         customErrorException.printStackTrace(printWriter);
         String stackTrace = stringWriter.toString();
         stackTrace = stackTrace.substring(0, 200);
-        return new ResponseEntity<>( new ErrorResponse( status, 2,customErrorException.getMessage(), stackTrace), status );
+        return new ResponseEntity<>( new ResponseGeralRL( status, 2,customErrorException.getMessage(), stackTrace), status );
     }
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponse> handleCustomValidationException( Exception e ) {
+    public ResponseEntity<ResponseGeralRL> handleCustomValidationException( Exception e ) {
     	MethodArgumentNotValidException ex = (MethodArgumentNotValidException) e;
     	HttpStatus status = HttpStatus.BAD_REQUEST;
     	
@@ -61,7 +61,7 @@ public class CustomControllerAdvice {
  				.append(fieldError.getDefaultMessage());
  				//.append("\n");
     	}
- 		return new ResponseEntity<>( new ErrorResponse( status, 2, errors.toString(), "Validation"), status );
+ 		return new ResponseEntity<>( new ResponseGeralRL( status, 2, errors.toString(), "Validation"), status );
     }
 
 }

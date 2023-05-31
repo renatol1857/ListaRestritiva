@@ -46,7 +46,7 @@ public class FreeController {
 	
 	/* #FIXME preciso ajustar a paginacao do historico */
 	@GetMapping(path = "/historico/{fullPhone}/{num_pag}")
-	public FreeHistDTO consultarHistorico(@PathVariable String fullPhone, @PathVariable String num_pag) {
+	public FreeHistDTO consultarHistorico(@PathVariable String fullPhone, @PathVariable(name = "num_pag") int num_pag) {
 		return service.consultarHistorico(fullPhone, num_pag);
 	}
 
@@ -60,5 +60,7 @@ public class FreeController {
 		service.apagar(fullPhone);
 		return ResponseEntity.status(HttpStatus.OK).body(String.format("Fone %s e seus históricos foram apagados com sucesso",fullPhone) );
 	}
+	
+	
 	
 }

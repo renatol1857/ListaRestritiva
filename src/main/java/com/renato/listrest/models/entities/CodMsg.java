@@ -9,8 +9,7 @@ import java.util.Objects;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import com.renato.listrest.models.enums.PadroesEn;
-import com.renato.listrest.models.enums.StatusEn;
+import com.renato.listrest.models.enums.TipoEndPointEn;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,48 +25,51 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Padrao implements Serializable {
+public class CodMsg implements Serializable {
+
 	@Transient
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(length = 50)
-	private String alias;
 
-	private PadroesEn tipoPadrao;
-
-	private StatusEn status;
-
-	@Column(length = 50)
-	private String extra = "";
+	@Column(length = 10, nullable = false, updatable = false, unique = true)
+	private String codMsg = "";
 
 	@Column(length = 200)
-	private String descricao = "";
+	private String msg = "";
 
 	@Column(updatable = false, nullable = false)
 	@CreationTimestamp
 	private Instant dh;
 
-	@Column(nullable = false, updatable = true)
+	@Column(updatable = true, nullable = false)
 	@UpdateTimestamp
-	private Instant dhup;
+	private Instant dhUp;
 
-	public Padrao(String alias,PadroesEn padrao) {
-		this.tipoPadrao = padrao;
-		this.alias = alias;
-		status = StatusEn.APROVACAO;
+	private TipoEndPointEn tipoEndPoint = TipoEndPointEn.CONSULTAR;
+
+	@Column(length = 300)
+	private String obs = "";
+
+	public CodMsg(String codMsg) {
+		this.codMsg = codMsg;
 	}
 
-	public Padrao(String alias, PadroesEn padrao, String descricao) {
-		this(alias, padrao);
-		this.descricao = descricao;
+	public CodMsg(String codMsg, String msg) {
+		this(codMsg);
+		this.msg = msg;
 	}
 
-	public Padrao(String alias, PadroesEn padrao, String descricao, String extra) {
-		this(alias, padrao, descricao);
-		this.extra = extra;
+	public CodMsg(String codMsg, String msg, TipoEndPointEn tipoEndPoint) {
+		this(codMsg, msg);
+		this.tipoEndPoint = tipoEndPoint;
+	}
+
+	public CodMsg(String codMsg, String msg, TipoEndPointEn tipoEndPoint, String obs) {
+		this(codMsg, msg, tipoEndPoint);
+		this.obs = obs;
 	}
 
 	public String getDh() {
@@ -77,7 +79,7 @@ public class Padrao implements Serializable {
 
 	public String getDhup() {
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
-		return fmt.format(this.dhup);
+		return fmt.format(this.dhUp);
 	}
 
 	@Override
@@ -93,14 +95,8 @@ public class Padrao implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Padrao other = (Padrao) obj;
+		CodMsg other = (CodMsg) obj;
 		return Objects.equals(id, other.id);
-	}
-
-	@Override
-	public String toString() {
-		return "Padrao [id=" + id + ", padrao=" + tipoPadrao + ", status=" + status + ", extra=" + extra + ", descricao="
-				+ descricao + ", dh=" + getDh() + ", dhup=" + getDhup() + "]";
 	}
 
 }
